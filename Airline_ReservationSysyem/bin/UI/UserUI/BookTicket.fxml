@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookTicketController">
+   <children>
+      <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #E96151;">
+         <children>
+            <Label layoutX="168.0" layoutY="33.0" text="Book Ticket" textFill="#ece3e3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="54.0" layoutY="101.0" text="Email Id">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField layoutX="160.0" layoutY="98.0" prefHeight="25.0" prefWidth="250.0" />
+      <Label layoutX="54.0" layoutY="145.0" text="Moble No">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="EmailTextFild" layoutX="160.0" layoutY="98.0" prefHeight="26.0" prefWidth="250.0" promptText="Email Id here">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Label layoutX="54.0" layoutY="183.0" text="Date">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="DateTextFild" layoutX="160.0" layoutY="188.0" prefHeight="26.0" prefWidth="250.0" promptText="Date here">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Label layoutX="54.0" layoutY="227.0" text="No Of Person" />
+      <TextField fx:id="MobileNOTextFild" layoutX="160.0" layoutY="142.0" prefHeight="26.0" prefWidth="250.0" promptText="Mobile No here">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="NoPersonTextFild" layoutX="160.0" layoutY="232.0" prefHeight="26.0" prefWidth="250.0" promptText="No of Person here" />
+      <TextField fx:id="AddressTextFild" layoutX="160.0" layoutY="276.0" prefHeight="52.0" prefWidth="250.0" promptText="Your Discription" />
+      <Label layoutX="54.0" layoutY="281.0" prefHeight="18.0" prefWidth="61.0" text="Address" />
+      <Button fx:id="ProcessButton" layoutX="184.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #E96151;" text="Process To Payment" textFill="WHITE" />
+      <Button fx:id="CancelButton" layoutX="351.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #E96151;" text="Cancel" textFill="WHITE" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminFlightList">
+   <top>
+      <HBox prefHeight="50.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Flight Name" />
+            <TextField fx:id="searchByName" promptText="Search By Name" />
+            <Label text="Flight No." />
+            <TextField fx:id="searchByFlightNo" promptText="Search By Flight No" />
+            <Button fx:id="searchButton" mnemonicParsing="false" onAction="#SearchBtnClicked" style="-fx-background-color: #764AF1;" text="Search" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <TableView prefHeight="312.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Flight No" />
+            <TableColumn fx:id="flightNameColumn" prefWidth="108.0" text="Flight Name" />
+            <TableColumn fx:id="fromCityColumn" prefWidth="76.0" text="From city" />
+            <TableColumn fx:id="toCityColumn" prefWidth="84.0" text="To city" />
+            <TableColumn fx:id="dateColumn" prefWidth="61.0" text="Date" />
+            <TableColumn fx:id="timeColumn" prefWidth="46.0" text="Time" />
+            <TableColumn fx:id="airpotNameColumn" prefWidth="113.0" text="AirPort Name" />
+            <TableColumn fx:id="ticketPriceColumn" prefWidth="104.0" text="Ticket Price" />
+            <TableColumn fx:id="editColumn" prefWidth="115.0" text="Edit" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="46.0" prefWidth="800.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="newButton" mnemonicParsing="false" onAction="#NewBtnCliked" text="New" />
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deletBtnCliked" text="Delete" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

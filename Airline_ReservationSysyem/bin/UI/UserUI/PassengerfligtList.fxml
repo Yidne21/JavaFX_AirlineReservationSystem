@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="366.0" prefWidth="1062.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlightListController">
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="72.0" layoutY="48.0" prefHeight="26.0" prefWidth="85.0" text="From City" AnchorPane.rightAnchor="905.0">
+               <padding>
+                  <Insets right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="FromCityTextField" alignment="CENTER" layoutX="142.0" layoutY="55.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.rightAnchor="720.0" />
+            <Label layoutX="364.0" layoutY="56.0" text="To City" AnchorPane.rightAnchor="646.0">
+               <padding>
+                  <Insets right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="ToCityTextField" alignment="CENTER" layoutX="422.0" layoutY="55.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.rightAnchor="440.0" />
+            <Label layoutX="630.0" layoutY="56.0" text="Date" AnchorPane.rightAnchor="394.0">
+               <padding>
+                  <Insets right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <DatePicker fx:id="DateDatePicker" layoutX="668.0" layoutY="55.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.rightAnchor="194.0" />
+            <Button fx:id="ButtonSearch" layoutX="882.0" layoutY="55.0" mnemonicParsing="false" onAction="#ButtonSearchClicked" prefHeight="32.0" prefWidth="73.0" text="Search" AnchorPane.rightAnchor="109.0" />
+            <TableView fixedCellSize="0.0" layoutX="6.0" layoutY="103.0" prefHeight="210.0" prefWidth="1062.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="103.0">
+              <columns>
+                  <TableColumn fx:id="ColFlightNumber" maxWidth="1.7976931348623157E308" prefWidth="127.0" text="Flight Number" />
+                <TableColumn fx:id="ColPlaneNumber" maxWidth="1.7976931348623157E308" prefWidth="114.0" text="Plane Number" />
+                <TableColumn fx:id="ColFromCity" maxWidth="1.7976931348623157E308" prefWidth="106.0" text="From City" />
+                  <TableColumn fx:id="ColToCity" maxWidth="1.7976931348623157E308" prefWidth="116.0" text="To City" />
+                  <TableColumn fx:id="ColDate" maxWidth="1.7976931348623157E308" prefWidth="102.0" text="Date" />
+                  <TableColumn fx:id="ColArrivalTime" maxWidth="1.7976931348623157E308" prefWidth="118.0" text="Arrival Time" />
+                  <TableColumn fx:id="ColDestinatiionTime" maxWidth="1.7976931348623157E308" prefWidth="122.0" text="Destination Time" />
+                  <TableColumn fx:id="ColAirPortTime" maxWidth="1.7976931348623157E308" prefWidth="109.0" text="AirPort Name" />
+                  <TableColumn fx:id="ColTicketPrice" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="81.0" text="Ticket Price" />
+                  <TableColumn fx:id="ColBook" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="107.0" text="Book" />
+              </columns>
+               <padding>
+                  <Insets right="10.0" top="10.0" />
+               </padding>
+            </TableView>
+            <HBox alignment="CENTER" layoutX="6.0" layoutY="7.0" prefHeight="26.0" prefWidth="834.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="138.0" text="Flight List">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox />
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>

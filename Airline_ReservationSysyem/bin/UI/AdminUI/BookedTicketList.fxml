@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookedTicketController">
+   <top>
+      <HBox prefHeight="42.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Name" />
+            <TextField fx:id="searchByNameTextField" promptText="Search By Name" />
+            <Label text="Email Id" />
+            <TextField fx:id="searchByemailIdextField" promptText="Search By email id" />
+            <Button fx:id="serachButton" mnemonicParsing="false" onAction="#serachBtnClicked" text="Search" />
+         </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="BOTTOM_RIGHT">
+         <children>
+            <Button fx:id="previousButton" mnemonicParsing="false" onAction="#previousBtnCliked" text="Previous" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextBtnCliked" text="Next" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <TableView prefHeight="308.0" prefWidth="745.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="flightNameColumn" prefWidth="101.0" text="Flight Name" />
+          <TableColumn fx:id="userNameColumn" prefWidth="109.0" text="User Name" />
+            <TableColumn fx:id="mobileNoColumn" prefWidth="93.0" text="Mobile No." />
+            <TableColumn fx:id="bookDateColumn" prefWidth="38.0" text="Book Date" />
+            <TableColumn fx:id="emalIdColumn" prefWidth="75.0" text="Email Id" />
+            <TableColumn fx:id="noOfPersonColumn" prefWidth="106.0" text="No of Person" />
+            <TableColumn fx:id="ticketPriceColumn" prefWidth="104.0" text="Ticket Price" />
+            <TableColumn fx:id="finalPriceColumn" prefWidth="118.0" text="Final Price" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
