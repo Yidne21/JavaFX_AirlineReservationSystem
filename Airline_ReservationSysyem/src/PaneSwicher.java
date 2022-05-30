@@ -1,6 +1,4 @@
-
 import java.io.InputStream;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 
@@ -23,4 +21,5 @@ public class PaneSwicher {
         }
         return view;
     }
+
 }

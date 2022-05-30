@@ -22,12 +22,12 @@ public class MainController {
     private Button BtnAdmin;
 
     @FXML
-    private BorderPane MainBorderpane;
+    protected BorderPane MainBorderpane;
 
     @FXML
     void ButtonFlihtClicked(ActionEvent event) {
         PaneSwicher swicher = new PaneSwicher();
-        Pane view = swicher.getPane("PassengerfligtList");
+        Pane view = swicher.getPane("UserUI/PassengerfligtList");
         MainBorderpane.setCenter(view);
 
     }
@@ -35,7 +35,7 @@ public class MainController {
     @FXML
     void ButtonHomeClicked(ActionEvent event) {
         PaneSwicher swicher = new PaneSwicher();
-        Pane view = swicher.getPane("HomePage");
+        Pane view = swicher.getPane("CommenUI/HomePage");
         MainBorderpane.setCenter(view);
 
     }
@@ -43,7 +43,7 @@ public class MainController {
     @FXML
     void ButtonLoginCliked(ActionEvent event) {
         PaneSwicher swicher = new PaneSwicher();
-        Pane view = swicher.getPane("login");
+        Pane view = swicher.getPane("CommenUI/login");
         MainBorderpane.setCenter(view);
 
     }
@@ -51,9 +51,7 @@ public class MainController {
     @FXML
     void btnAdminClicked(ActionEvent event) {
         PaneSwicher swicher = new PaneSwicher();
-        Pane view = swicher.getPane("login");
+        Pane view = swicher.getPane("AdminUI/login");
         MainBorderpane.setCenter(view);
-
     }
-
 }
