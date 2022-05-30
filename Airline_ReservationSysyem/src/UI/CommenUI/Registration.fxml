@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterController">
    <children>
       <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #E96151;">
@@ -41,17 +40,17 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="255.0" text="Confirm Passward" textFill="#101010">
+      <Label layoutX="20.0" layoutY="255.0" prefHeight="16.0" prefWidth="125.0" text="Confirm Passward" textFill="#101010">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Button fx:id="SignupButton" layoutX="183.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: #E96151;" text="Signup" textFill="#fffbfb">
+      <Button fx:id="SignupButton" layoutX="183.0" layoutY="307.0" mnemonicParsing="false" onAction="#SignupButtonClicked" style="-fx-background-color: #E96151;" text="Signup" textFill="#fffbfb">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="CancelTextFild" layoutX="278.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: #E96151;" text="Cancle" textFill="WHITE">
+      <Button fx:id="CancelButton" layoutX="278.0" layoutY="307.0" mnemonicParsing="false" onAction="#CancelButtonClicked" style="-fx-background-color: #E96151;" text="Cancle" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
