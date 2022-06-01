@@ -4,7 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
-public class MainController {
+public class MainController extends LoginController {
 
     @FXML
     private Button ButtonFlight;
@@ -22,12 +22,15 @@ public class MainController {
     private Button BtnAdmin;
 
     @FXML
-    protected BorderPane MainBorderpane;
+    private BorderPane MainBorderpane;
+
+    @FXML
+    private Button btnSignUp;
 
     @FXML
     void ButtonFlihtClicked(ActionEvent event) {
         PaneSwicher swicher = new PaneSwicher();
-        Pane view = swicher.getPane("UserUI/PassengerfligtList");
+        Pane view = swicher.getPane("CommenUI/fligtList");
         MainBorderpane.setCenter(view);
 
     }
@@ -45,7 +48,6 @@ public class MainController {
         PaneSwicher swicher = new PaneSwicher();
         Pane view = swicher.getPane("CommenUI/login");
         MainBorderpane.setCenter(view);
-
     }
 
     @FXML
@@ -53,5 +55,13 @@ public class MainController {
         PaneSwicher swicher = new PaneSwicher();
         Pane view = swicher.getPane("AdminUI/login");
         MainBorderpane.setCenter(view);
+    }
+
+    @FXML
+    void btnSignUpClicked(ActionEvent event) {
+        PaneSwicher swicher = new PaneSwicher();
+        Pane view = swicher.getPane("UserUI/Registration");
+        MainBorderpane.setCenter(view);
+
     }
 }

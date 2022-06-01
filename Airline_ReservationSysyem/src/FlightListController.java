@@ -1,11 +1,16 @@
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
-public class FlightListController {
+public class FlightListController extends SceneSwitcher {
 
     @FXML
     private Button ButtonSearch;
@@ -15,9 +20,6 @@ public class FlightListController {
 
     @FXML
     private TableColumn<?, ?> ColArrivalTime;
-
-    @FXML
-    private TableColumn<?, ?> ColBook;
 
     @FXML
     private TableColumn<?, ?> ColDate;
@@ -50,7 +52,31 @@ public class FlightListController {
     private TextField ToCityTextField;
 
     @FXML
+    private Button btnBook;
+
+    @FXML
+    private TextField flightNumberTF;
+
+    @FXML
+    private TextField planeNumberTF;
+
+    @FXML
     void ButtonSearchClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnBookClicked(ActionEvent event) {
+        try {
+            root = getScene("UserUI/BookTicket");
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
     }
 
