@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlightListController">
+<BorderPane prefHeight="100.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlightListController">
    <center>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
@@ -35,7 +35,7 @@
             </Label>
             <DatePicker fx:id="DateDatePicker" layoutX="668.0" layoutY="55.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.rightAnchor="194.0" />
             <Button fx:id="ButtonSearch" layoutX="882.0" layoutY="55.0" mnemonicParsing="false" onAction="#ButtonSearchClicked" prefHeight="32.0" prefWidth="73.0" text="Search" AnchorPane.rightAnchor="109.0" />
-            <TableView fixedCellSize="0.0" layoutX="6.0" layoutY="103.0" prefHeight="210.0" prefWidth="1062.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="103.0">
+            <TableView fixedCellSize="0.0" layoutX="6.0" layoutY="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="103.0">
               <columns>
                   <TableColumn fx:id="ColFlightNumber" maxWidth="1.7976931348623157E308" prefWidth="127.0" text="Flight Number" />
                 <TableColumn fx:id="ColPlaneNumber" maxWidth="1.7976931348623157E308" prefWidth="114.0" text="Plane Number" />
@@ -43,9 +43,9 @@
                   <TableColumn fx:id="ColToCity" maxWidth="1.7976931348623157E308" prefWidth="116.0" text="To City" />
                   <TableColumn fx:id="ColDate" maxWidth="1.7976931348623157E308" prefWidth="102.0" text="Date" />
                   <TableColumn fx:id="ColArrivalTime" maxWidth="1.7976931348623157E308" prefWidth="118.0" text="Arrival Time" />
-                  <TableColumn fx:id="ColDestinatiionTime" maxWidth="1.7976931348623157E308" prefWidth="178.0" text="Destination Time" />
-                  <TableColumn fx:id="ColAirPortTime" maxWidth="1.7976931348623157E308" prefWidth="40.0" text="AirPort Name" />
-                  <TableColumn fx:id="ColTicketPrice" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="141.0" text="Ticket Price" />
+                  <TableColumn fx:id="ColDestinatiionTime" maxWidth="1.7976931348623157E308" prefWidth="122.0" text="Destination Time" />
+                  <TableColumn fx:id="ColAirPortTime" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="86.0" text="AirPort Name" />
+                  <TableColumn fx:id="ColTicketPrice" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="99.0" text="Ticket Price" />
               </columns>
                <padding>
                   <Insets right="10.0" top="10.0" />
@@ -67,18 +67,4 @@
    <top>
       <AnchorPane BorderPane.alignment="CENTER" />
    </top>
-   <bottom>
-      <HBox spacing="10.0" BorderPane.alignment="CENTER">
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-         <children>
-            <Label text="Flight Number" />
-            <TextField fx:id="flightNumberTF" promptText="Enter Flight number" />
-            <Label text="Plane number" />
-            <TextField fx:id="planeNumberTF" promptText="Enter Plane Number" />
-            <Button fx:id="btnBook" mnemonicParsing="false" onAction="#btnBookClicked" text="Book" />
-         </children>
-      </HBox>
-   </bottom>
 </BorderPane>

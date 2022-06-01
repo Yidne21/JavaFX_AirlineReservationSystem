@@ -14,5 +14,5 @@
     "/home/yidne/openjfx-17.0.2_linux-x64_bin-sdk/javafx-sdk-17.0.2/lib/jfoenix-9.0.10.jar",
     "/home/yidne/openjfx-17.0.2_linux-x64_bin-sdk/javafx-sdk-17.0.2/lib/mysql-connector-java-8.0.28.jar"
   ],
-  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m"
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m"
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="366.0" prefWidth="1062.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlightListController">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlightListController">
    <center>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
@@ -43,10 +43,9 @@
                   <TableColumn fx:id="ColToCity" maxWidth="1.7976931348623157E308" prefWidth="116.0" text="To City" />
                   <TableColumn fx:id="ColDate" maxWidth="1.7976931348623157E308" prefWidth="102.0" text="Date" />
                   <TableColumn fx:id="ColArrivalTime" maxWidth="1.7976931348623157E308" prefWidth="118.0" text="Arrival Time" />
-                  <TableColumn fx:id="ColDestinatiionTime" maxWidth="1.7976931348623157E308" prefWidth="122.0" text="Destination Time" />
-                  <TableColumn fx:id="ColAirPortTime" maxWidth="1.7976931348623157E308" prefWidth="109.0" text="AirPort Name" />
-                  <TableColumn fx:id="ColTicketPrice" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="81.0" text="Ticket Price" />
-                  <TableColumn fx:id="ColBook" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="107.0" text="Book" />
+                  <TableColumn fx:id="ColDestinatiionTime" maxWidth="1.7976931348623157E308" prefWidth="178.0" text="Destination Time" />
+                  <TableColumn fx:id="ColAirPortTime" maxWidth="1.7976931348623157E308" prefWidth="40.0" text="AirPort Name" />
+                  <TableColumn fx:id="ColTicketPrice" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="141.0" text="Ticket Price" />
               </columns>
                <padding>
                   <Insets right="10.0" top="10.0" />
@@ -68,4 +67,18 @@
    <top>
       <AnchorPane BorderPane.alignment="CENTER" />
    </top>
+   <bottom>
+      <HBox spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <Label text="Flight Number" />
+            <TextField fx:id="flightNumberTF" promptText="Enter Flight number" />
+            <Label text="Plane number" />
+            <TextField fx:id="planeNumberTF" promptText="Enter Plane Number" />
+            <Button fx:id="btnBook" mnemonicParsing="false" onAction="#btnBookClicked" text="Book" />
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>
