@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="436.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookedTicketController">
+
+<AnchorPane prefHeight="436.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyTicketController">
    <children>
       <TableView layoutX="-15.0" layoutY="71.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
         <columns>
@@ -44,7 +45,7 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="227.0" layoutY="-36.0" style="-fx-background-color: #2596be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Booked Ticket List" textFill="WHITE">
+            <Label text="Your Ticket List" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

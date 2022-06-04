@@ -1,49 +1,48 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
 public class MyTicketController {
 
     @FXML
-    private TableColumn<?, ?> ColArrivalTime;
+    private DatePicker DateTF;
 
     @FXML
-    private TableColumn<?, ?> ColDate;
+    private TextField TcketIDTF;
 
     @FXML
-    private TableColumn<?, ?> ColFrom;
+    private TableColumn<?, ?> bookDateColumn;
 
     @FXML
-    private TableColumn<?, ?> ColSeatNumber;
+    private TableColumn<?, ?> emalIdColumn;
 
     @FXML
-    private TableColumn<?, ?> ColTicketID;
+    private TableColumn<?, ?> finalPriceColumn;
 
     @FXML
-    private TableColumn<?, ?> ColTo;
+    private TableColumn<?, ?> flightNameColumn;
 
     @FXML
-    private TextField SeatNumberTF;
+    private TableColumn<?, ?> mobileNoColumn;
 
     @FXML
-    private TextField TicketIDTF;
-
-    @FXML
-    private TableColumn<?, ?> colCancel;
-
-    @FXML
-    private TableColumn<?, ?> colDestination;
-
-    @FXML
-    private TableColumn<?, ?> colEdit;
+    private TableColumn<?, ?> noOfPersonColumn;
 
     @FXML
     private Button serachButton;
 
     @FXML
+    private TableColumn<?, ?> ticketPriceColumn;
+
+    @FXML
+    private TableColumn<?, ?> userNameColumn;
+
+    @FXML
     void serachBtnClicked(ActionEvent event) {
+
     }
 
 }

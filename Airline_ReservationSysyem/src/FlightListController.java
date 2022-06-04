@@ -2,13 +2,13 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 
 public class FlightListController extends SceneSwitcher {
 
@@ -52,6 +52,12 @@ public class FlightListController extends SceneSwitcher {
     private TextField ToCityTextField;
 
     @FXML
+    private ListView<?> BussSeatlistView;
+
+    @FXML
+    private ListView<?> EcoSeatlistView;
+
+    @FXML
     private Button btnBook;
 
     @FXML
@@ -61,6 +67,21 @@ public class FlightListController extends SceneSwitcher {
     private TextField planeNumberTF;
 
     @FXML
+    private AnchorPane rootAnchorPane;
+
+    PaneSwicher swicher = new PaneSwicher();
+
+    @FXML
+    void btnBussiSeeseatClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnEcoSeeseatClicked(ActionEvent event) {
+
+    }
+
+    @FXML
     void ButtonSearchClicked(ActionEvent event) {
 
     }
@@ -68,16 +89,11 @@ public class FlightListController extends SceneSwitcher {
     @FXML
     void btnBookClicked(ActionEvent event) {
         try {
-            root = getScene("UserUI/BookTicket");
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            AnchorPane signUP = FXMLLoader.load(getClass().getResource("UI/UserUI/BookTicket.fxml"));
+            rootAnchorPane.getChildren().setAll(signUP);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
     }
 
 }

@@ -1,35 +1,51 @@
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 
 public class LoginController extends SceneSwitcher {
     @FXML
-    private Button LoginButton;
+    public Button LoginButton;
 
     @FXML
-    private AnchorPane rootAnchorPane;
+    public Button btnSignUp;
 
     @FXML
-    private ImageView imageView;
+    public AnchorPane rootAnchorPane;
 
     @FXML
-    void loginBtnClicked(ActionEvent event) {
-        try {
-            root = getScene("UserUI/userDashboard");
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public ImageView imageView;
+
+    @FXML
+    void btnSignUpClicked(ActionEvent event) throws IOException {
+        PaneSwicher swicher = new PaneSwicher();
+        Pane view = swicher.getPane("UserUI/Registration");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/CommenUI/Main.fxml"));
+        Parent root = loader.load();
+        MainController mainController = loader.getController();
+        mainController.MainBorderpane.setCenter(view);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    void loginBtnClicked(ActionEvent event) throws IOException {
+        root = getScene("UserUI/userDashboard");
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 

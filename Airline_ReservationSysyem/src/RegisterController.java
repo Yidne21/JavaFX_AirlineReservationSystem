@@ -3,9 +3,14 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.Node;
+import javafx.stage.Stage;
 
 public class RegisterController extends SceneSwitcher {
 
@@ -33,29 +38,32 @@ public class RegisterController extends SceneSwitcher {
     @FXML
     private AnchorPane rootAnchorpane;
 
-    MainController mainController = new MainController();
-
     @FXML
-    void CancelButtonClicked(ActionEvent event) {
-        try {
-            AnchorPane signUP = FXMLLoader.load(getClass().getResource("UI/CommenUI/login.fxml"));
-            rootAnchorpane.getChildren().setAll(signUP);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
+    void CancelButtonClicked(ActionEvent event) throws IOException {
+        PaneSwicher swicher = new PaneSwicher();
+        Pane view = swicher.getPane("CommenUI/login");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/CommenUI/Main.fxml"));
+        Parent root = loader.load();
+        MainController mainController = loader.getController();
+        mainController.MainBorderpane.setCenter(view);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void SignupButtonClicked(ActionEvent event) {
-        try {
-            AnchorPane signUP = FXMLLoader.load(getClass().getResource("UI/CommenUI/login.fxml"));
-            rootAnchorpane.getChildren().setAll(signUP);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    void SignupButtonClicked(ActionEvent event) throws IOException {
+        PaneSwicher swicher = new PaneSwicher();
+        Pane view = swicher.getPane("CommenUI/login");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/CommenUI/Main.fxml"));
+        Parent root = loader.load();
+        MainController mainController = loader.getController();
+        mainController.MainBorderpane.setCenter(view);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

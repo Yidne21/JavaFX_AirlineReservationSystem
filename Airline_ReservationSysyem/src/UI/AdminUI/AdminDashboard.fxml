@@ -10,32 +10,32 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootBorderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDashbordController">
+<BorderPane fx:id="rootBorderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #145369;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDashbordController">
    <top>
-      <HBox spacing="5.0" BorderPane.alignment="CENTER">
+      <HBox spacing="5.0" style="-fx-background-color: #041014;" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <Button fx:id="btnSchedulFlight" mnemonicParsing="false" onAction="#btnSchedulFlightCliked" text="Schedule Flight" />
-            <Button fx:id="btnBookedTicketList" mnemonicParsing="false" onAction="#btnBookedTicketListClicked" text="booked Ticket list" />
+            <Button fx:id="btnSchedulFlight" mnemonicParsing="false" onAction="#btnSchedulFlightCliked" style="-fx-background-color: #2596be;" text="Schedule Flight" textFill="WHITE" />
+            <Button fx:id="btnBookedTicketList" mnemonicParsing="false" onAction="#btnBookedTicketListClicked" style="-fx-background-color: #2596be;" text="booked Ticket list" textFill="WHITE" />
             <Pane HBox.hgrow="ALWAYS" />
-            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#btnLogoutClicked" text="Log out" />
+            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#btnLogoutClicked" style="-fx-background-color: #2596be;" text="Log out" textFill="WHITE" />
          </children>
       </HBox>
    </top>
    <left>
-      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="656.0" prefWidth="171.0" spacing="5.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+            <ImageView fitHeight="150.0" fitWidth="106.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
                <image>
                   <Image url="@../../Icon/user_64.png" />
                </image>
             </ImageView>
-            <Label text="Name" />
+            <Label text="Name" textFill="WHITE" />
          </children>
       </VBox>
    </left>

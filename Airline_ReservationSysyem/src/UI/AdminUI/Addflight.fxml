@@ -2,116 +2,93 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane style="-fx-background-color: #2596be;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleFlightController">
    <children>
-      <GridPane prefHeight="426.0" prefWidth="619.0" style="-fx-background-color: pink;">
+      <GridPane alignment="TOP_CENTER" hgap="10.0" layoutY="42.0" style="-fx-background-color: #a8d5e5;" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="333.0" minWidth="10.0" prefWidth="121.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="438.0" minWidth="10.0" prefWidth="438.0" />
+          <ColumnConstraints maxWidth="333.0" minWidth="10.0" prefWidth="121.0" />
+          <ColumnConstraints halignment="LEFT" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="165.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
+          <RowConstraints fillHeight="false" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints fillHeight="false" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
         </rowConstraints>
-         <VBox.margin>
-            <Insets left="100.0" right="100.0" top="50.0" />
-         </VBox.margin>
          <children>
-            <HBox prefHeight="55.0" prefWidth="559.0" style="-fx-background-color: pink;" GridPane.columnSpan="2" GridPane.rowIndex="1">
-               <children>
-                  <Label text="Flight" textFill="#8a0606">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="20.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <Label text="Flight No.*" GridPane.rowIndex="2">
+            <Label text="Flight No.*">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Flight Name*" textFill="#1e1d1d" GridPane.rowIndex="3">
+            <Label text="Plane number" textFill="#1e1d1d" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="From City*" GridPane.rowIndex="4">
+            <Label text="From City*" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="To City*" GridPane.rowIndex="5">
+            <Label text="To City*" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Date *" GridPane.rowIndex="6">
+            <Label text="Date *" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Time *" GridPane.rowIndex="7">
+            <Label text="Time *" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Travel Duration *" GridPane.rowIndex="8">
+            <Label text="Rout" GridPane.rowIndex="6">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Airport Name *" GridPane.rowIndex="9">
+            <Label text="Airport Name *" GridPane.rowIndex="7">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Ticket Price *" GridPane.rowIndex="10">
+            <Label text="Ticket Price *" GridPane.rowIndex="8">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Description*" GridPane.rowIndex="11">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField layoutX="196.0" layoutY="79.0" style="-fx-background-color: pink;" />
-            <TextField text="5VJ52" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="flightNumberTF" promptText="Enter flight number" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
             </TextField>
-            <TextField text="5VJ52" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="planeNumberTF" promptText="Plane number" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
             </TextField>
-            <TextField promptText="Enter from City" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="fromTF" promptText="Enter from City" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
@@ -119,7 +96,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField promptText="Enter To City" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="toTF" promptText="Enter To City" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
@@ -127,7 +104,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField promptText="Enter Date" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextField fx:id="timeTF" promptText="Enter Time" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
@@ -135,7 +112,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField promptText="Enter Time" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextField fx:id="RoutTF" promptText="Enter Travel Duration" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
@@ -143,7 +120,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField promptText="Enter Travel Duration" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <TextField fx:id="AirpotNameTF" promptText="Enter Airport Name" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
@@ -151,7 +128,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField promptText="Enter Airport Name" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <TextField fx:id="ticketPriceTF" promptText="Enter Ticket Price" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
@@ -159,28 +136,12 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField promptText="Enter Ticket Price" GridPane.columnIndex="1" GridPane.rowIndex="10">
-               <GridPane.margin>
-                  <Insets right="40.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <TextField prefHeight="62.0" prefWidth="373.0" promptText="Your Description" GridPane.columnIndex="1" GridPane.rowIndex="11" GridPane.rowSpan="2">
-               <GridPane.margin>
-                  <Insets right="40.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <Button mnemonicParsing="false" style="-fx-background-color: blue;" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="13">
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveClicked" style="-fx-background-color: #2596be;" text="Save" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Label text="or" textFill="#141313" GridPane.columnIndex="1" GridPane.rowIndex="13">
+            <Label text="or" textFill="#141313" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <font>
                   <Font size="14.0" />
                </font>
@@ -188,7 +149,7 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" style="-fx-background-color: blue;" text="Reset" GridPane.columnIndex="1" GridPane.rowIndex="13">
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#btnCancelClicked" style="-fx-background-color: #2596be;" text="Cancel" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <font>
                   <Font size="16.0" />
                </font>
@@ -196,10 +157,23 @@
                   <Insets left="100.0" />
                </GridPane.margin>
             </Button>
+            <DatePicker fx:id="datePick" nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="183.0" promptText="Enter date" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </GridPane>
+      <HBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="559.0" style="-fx-background-color: #2596be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Schedule Flight" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
    </children>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
-</VBox>
+</AnchorPane>

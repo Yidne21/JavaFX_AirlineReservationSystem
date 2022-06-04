@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,30 +9,27 @@ import javafx.scene.layout.Pane;
 public class MainController extends LoginController {
 
     @FXML
-    private Button ButtonFlight;
+    public Button ButtonFlight;
 
     @FXML
-    private Button ButtonHome;
+    public Button ButtonHome;
 
     @FXML
-    private Button ButtonLogin;
+    public Button ButtonLogin;
 
     @FXML
-    private Button ButtonSignUp;
+    public Button ButtonSignUp;
 
     @FXML
-    private Button BtnAdmin;
+    public Button BtnAdmin;
 
     @FXML
-    private BorderPane MainBorderpane;
-
-    @FXML
-    private Button btnSignUp;
+    public BorderPane MainBorderpane;
 
     @FXML
     void ButtonFlihtClicked(ActionEvent event) {
         PaneSwicher swicher = new PaneSwicher();
-        Pane view = swicher.getPane("CommenUI/fligtList");
+        Pane view = swicher.getPane("UserUI/PassengerfligtList");
         MainBorderpane.setCenter(view);
 
     }
@@ -51,16 +50,9 @@ public class MainController extends LoginController {
     }
 
     @FXML
-    void btnAdminClicked(ActionEvent event) {
+    void btnAdminClicked(ActionEvent event) throws IOException {
         PaneSwicher swicher = new PaneSwicher();
         Pane view = swicher.getPane("AdminUI/login");
-        MainBorderpane.setCenter(view);
-    }
-
-    @FXML
-    void btnSignUpClicked(ActionEvent event) {
-        PaneSwicher swicher = new PaneSwicher();
-        Pane view = swicher.getPane("UserUI/Registration");
         MainBorderpane.setCenter(view);
 
     }

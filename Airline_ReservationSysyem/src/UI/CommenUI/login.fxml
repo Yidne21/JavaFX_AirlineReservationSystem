@@ -12,64 +12,73 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<AnchorPane fx:id="rootAnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
-      <GridPane alignment="CENTER" layoutX="24.0" layoutY="208.0" prefHeight="155.0" prefWidth="529.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="47.0">
+      <GridPane alignment="CENTER" hgap="10.0" layoutX="24.0" layoutY="194.0" prefHeight="164.0" prefWidth="390.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="201.0" minWidth="10.0" prefWidth="132.0" />
-          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="274.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+          <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
             <ColumnConstraints maxWidth="17.0" minWidth="0.0" prefWidth="0.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="117.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="117.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="159.0" vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Email" textFill="#2f0b0b">
+            <Label text="Email*" textFill="#041014">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label text="Password*" GridPane.rowIndex="1">
+            <Label text="Password*" textFill="#041014" GridPane.rowIndex="1">
                <font>
-                  <Font size="17.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
                <padding>
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <TextField prefHeight="29.0" prefWidth="231.0" promptText="Email" GridPane.columnIndex="1">
+            <TextField promptText="Email" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <PasswordField promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PasswordField promptText="Password" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </PasswordField>
-            <HBox alignment="TOP_CENTER" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="LoginButton" mnemonicParsing="false" onAction="#loginBtnClicked" text="Login" />
+                  <Button fx:id="LoginButton" mnemonicParsing="false" onAction="#loginBtnClicked" style="-fx-background-color: #2596be;" text="Login" textFill="WHITE" />
+                  <Label text="or" textFill="#041014">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnSignUp" mnemonicParsing="false" onAction="#btnSignUpClicked" style="-fx-background-color: #2596be;" text="Sign up" textFill="WHITE" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
          </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
       </GridPane>
-      <HBox alignment="CENTER" layoutX="-1.0" layoutY="-3.0" prefHeight="85.0" prefWidth="600.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="334.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="-1.0" layoutY="-3.0" style="-fx-background-color: #2596be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="BOTTOM_CENTER" text="Login" textFill="#f5f5f5" HBox.hgrow="ALWAYS">
+            <Label alignment="BOTTOM_CENTER" text="Login" textFill="WHITE">
                <font>
-                  <Font name="FontAwesome" size="24.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
                <padding>
-                  <Insets top="16.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </Label>
          </children>

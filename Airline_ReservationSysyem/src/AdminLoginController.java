@@ -4,8 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -15,10 +16,13 @@ public class AdminLoginController extends SceneSwitcher {
     private Button LoginButton;
 
     @FXML
-    private Label emailTF;
+    private TextField emailTF;
 
     @FXML
     private PasswordField passwordTF;
+
+    @FXML
+    private AnchorPane rootAnchorPane;
 
     @FXML
     void loginBtnClicked(ActionEvent event) throws IOException {

@@ -1,10 +1,17 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
 public class BookedTicketController {
+
+    @FXML
+    private DatePicker DateTF;
+
+    @FXML
+    private TextField TcketIDTF;
 
     @FXML
     private TableColumn<?, ?> bookDateColumn;
@@ -22,19 +29,7 @@ public class BookedTicketController {
     private TableColumn<?, ?> mobileNoColumn;
 
     @FXML
-    private Button nextButton;
-
-    @FXML
     private TableColumn<?, ?> noOfPersonColumn;
-
-    @FXML
-    private Button previousButton;
-
-    @FXML
-    private TextField searchByNameTextField;
-
-    @FXML
-    private TextField searchByemailIdextField;
 
     @FXML
     private Button serachButton;
@@ -44,16 +39,6 @@ public class BookedTicketController {
 
     @FXML
     private TableColumn<?, ?> userNameColumn;
-
-    @FXML
-    void nextBtnCliked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void previousBtnCliked(ActionEvent event) {
-
-    }
 
     @FXML
     void serachBtnClicked(ActionEvent event) {

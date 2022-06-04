@@ -12,19 +12,19 @@ import javafx.stage.Stage;
 public class AdminDashbordController extends SceneSwitcher {
 
     @FXML
-    private Button btnBookedTicketList;
+    public Button btnBookedTicketList;
 
     @FXML
-    private Button btnEditProfile;
+    public Button btnEditProfile;
 
     @FXML
-    private Button btnLogout;
+    public Button btnLogout;
 
     @FXML
-    private Button btnSchedulFlight;
+    public Button btnSchedulFlight;
 
     @FXML
-    private BorderPane rootBorderpane;
+    public BorderPane rootBorderpane;
 
     PaneSwicher swicher = new PaneSwicher();
 

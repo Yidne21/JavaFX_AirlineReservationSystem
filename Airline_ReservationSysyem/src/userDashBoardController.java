@@ -49,7 +49,7 @@ public class userDashBoardController extends SceneSwitcher {
 
     @FXML
     void btnMyticketClicked(ActionEvent event) {
-        Pane view = swicher.getPane("UserUI/MyTicketList");
+        Pane view = swicher.getPane("UserUI/MyTicket");
         rootBorderpane.setCenter(view);
     }
 

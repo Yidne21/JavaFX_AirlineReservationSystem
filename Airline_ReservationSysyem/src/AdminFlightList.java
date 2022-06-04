@@ -1,10 +1,18 @@
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.Node;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
 
-public class AdminFlightList {
+public class AdminFlightList extends SceneSwitcher {
 
     @FXML
     private TableColumn<?, ?> airpotNameColumn;
@@ -46,8 +54,17 @@ public class AdminFlightList {
     private TableColumn<?, ?> toCityColumn;
 
     @FXML
-    void NewBtnCliked(ActionEvent event) {
-
+    void NewBtnCliked(ActionEvent event) throws IOException {
+        PaneSwicher swicher = new PaneSwicher();
+        Pane view = swicher.getPane("AdminUI/Addflight");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/AdminUI/AdminDashboard.fxml"));
+        Parent root = loader.load();
+        AdminDashbordController adminDashbordController = loader.getController();
+        adminDashbordController.rootBorderpane.setCenter(view);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
