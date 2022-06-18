@@ -19,7 +19,7 @@ public class PaneSwicher {
 
             view = new FXMLLoader().load(fileUrl);
         } catch (Exception e) {
-            System.out.println("file not found");
+            e.printStackTrace();
         }
         return view;
     }

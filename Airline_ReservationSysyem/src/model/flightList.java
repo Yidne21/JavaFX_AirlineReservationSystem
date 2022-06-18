@@ -1,8 +1,11 @@
 package model;
 
+import javafx.scene.control.Button;
+
 public class flightList {
 
     int schedule_id;
+    int flightNumber;
     String flight_name;
     String from;
     String destination;
@@ -10,9 +13,10 @@ public class flightList {
     String arrival_time;
     String destination_time;
     int ticket_price;
+    Button book = new Button("book");
 
-    public flightList(int schedule_id, String flight_name, String from, String destination, String date,
-            String arrival_time, String destination_time, int ticket_price) {
+    public flightList(int schedule_id, int i, String flight_name, String from, String destination, String date,
+            String arrival_time, String destination_time, int ticket_price, Button book) {
         this.schedule_id = schedule_id;
         this.flight_name = flight_name;
         this.from = from;
@@ -21,6 +25,12 @@ public class flightList {
         this.arrival_time = arrival_time;
         this.destination_time = destination_time;
         this.ticket_price = ticket_price;
+        this.book = book;
+        book.setStyle("-fx-base: coral;");
+
+        book.setOnAction(e -> {
+
+        });
     }
 
     public int getSchedule_id() {
@@ -87,4 +97,19 @@ public class flightList {
         this.ticket_price = ticket_price;
     }
 
+    public Button getBook() {
+        return book;
+    }
+
+    public void setBook(Button book) {
+        this.book = book;
+    }
+
+    public int getFlightNumber() {
+        return flightNumber;
+    }
+
+    public void setFlightNumber(int flightNumber) {
+        this.flightNumber = flightNumber;
+    }
 }

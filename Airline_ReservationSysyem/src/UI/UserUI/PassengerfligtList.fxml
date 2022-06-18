@@ -14,17 +14,17 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlightListController">
    <children>
-      <TableView fx:id="flightlistTable" fixedCellSize="0.0" layoutX="6.0" layoutY="70.0" prefHeight="417.0" prefWidth="888.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="70.0">
+      <TableView fx:id="flightlistTable" fixedCellSize="0.0" layoutX="6.0" layoutY="70.0" prefHeight="417.0" prefWidth="887.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="70.0">
         <columns>
-            <TableColumn fx:id="ColFlightNumber" maxWidth="1.7976931348623157E308" prefWidth="127.0" text="Flight Number" />
-          <TableColumn fx:id="ColPlaneNumber" maxWidth="1.7976931348623157E308" prefWidth="114.0" text="Plane Number" />
-          <TableColumn fx:id="ColFromCity" maxWidth="1.7976931348623157E308" prefWidth="106.0" text="From City" />
-            <TableColumn fx:id="ColToCity" maxWidth="1.7976931348623157E308" prefWidth="116.0" text="To City" />
-            <TableColumn fx:id="ColDate" maxWidth="1.7976931348623157E308" prefWidth="102.0" text="Date" />
-            <TableColumn fx:id="ColArrivalTime" maxWidth="1.7976931348623157E308" prefWidth="118.0" text="Arrival Time" />
-            <TableColumn fx:id="ColDestinatiionTime" maxWidth="1.7976931348623157E308" prefWidth="178.0" text="Destination Time" />
-            <TableColumn fx:id="ColAirPortTime" maxWidth="1.7976931348623157E308" prefWidth="40.0" text="AirPort Name" />
-            <TableColumn fx:id="ColTicketPrice" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="141.0" text="Ticket Price" />
+            <TableColumn fx:id="ColScheduleNumber" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" text="Schedule Number" />
+            <TableColumn fx:id="ColFlightNumber" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="100.0" text="Flight Number" />
+          <TableColumn fx:id="ColFromCity" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="91.0" text="From City" />
+            <TableColumn fx:id="ColToCity" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="75.0" text="To City" />
+            <TableColumn fx:id="ColDate" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="73.0" text="Date" />
+            <TableColumn fx:id="ColArrivalTime" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="120.0" text="Arrival Time" />
+            <TableColumn fx:id="ColDestinatiionTime" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="156.0" text="Destination Time" />
+            <TableColumn fx:id="ColTicketPrice" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="100.0" text="Ticket Price" />
+            <TableColumn fx:id="colBook" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="100.0" text="Book" />
         </columns>
          <padding>
             <Insets right="10.0" top="10.0" />
@@ -78,12 +78,12 @@
       <ListView fx:id="BussSeatlistView" layoutX="869.0" layoutY="281.0" prefHeight="206.0" prefWidth="164.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="281.0" />
       <HBox alignment="CENTER" layoutX="888.0" layoutY="256.0" prefHeight="32.0" prefWidth="164.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btnBussSeeseat" mnemonicParsing="false" onAction="#btnBussiSeeseatClicked" text="See Bussiness class Seat " />
+            <Button fx:id="btnBussSeeseat" mnemonicParsing="false" onAction="#btnBussiSeeseatClicked" style="-fx-background-color: coral;" text="See Bussiness class Seat " />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="893.0" layoutY="75.0" prefHeight="32.0" prefWidth="164.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btnEcoSeeseat" mnemonicParsing="false" onAction="#btnEcoSeeseatClicked" text="See Economic class Seat " />
+            <Button fx:id="btnEcoSeeseat" mnemonicParsing="false" onAction="#btnEcoSeeseatClicked" style="-fx-background-color: coral;" text="See Economic class Seat " />
          </children>
       </HBox>
    </children>

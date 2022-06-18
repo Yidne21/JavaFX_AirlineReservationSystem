@@ -21,7 +21,7 @@ public class App extends Application {
     public void mainWindow() {
         try {
             // view
-            FXMLLoader loader = new FXMLLoader(App.class.getResource("/UI/CommenUI/Main.fxml"));
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("UI/CommenUI/Main.fxml"));
             AnchorPane pane = loader.load();
 
             // controller

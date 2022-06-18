@@ -33,11 +33,10 @@ public class MainController extends LoginController {
     }
 
     @FXML
-    void ButtonFlihtClicked(ActionEvent event) {
+    void ButtonFlihtClicked(ActionEvent event) throws IOException {
         PaneSwicher swicher = new PaneSwicher();
         Pane view = swicher.getPane("UserUI/PassengerfligtList");
         MainBorderpane.setCenter(view);
-
     }
 
     @FXML
