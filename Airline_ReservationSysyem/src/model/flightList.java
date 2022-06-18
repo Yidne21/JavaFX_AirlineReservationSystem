@@ -5,7 +5,6 @@ import javafx.scene.control.Button;
 public class flightList {
 
     int schedule_id;
-    int flightNumber;
     String flight_name;
     String from;
     String destination;
@@ -105,11 +104,5 @@ public class flightList {
         this.book = book;
     }
 
-    public int getFlightNumber() {
-        return flightNumber;
-    }
-
-    public void setFlightNumber(int flightNumber) {
-        this.flightNumber = flightNumber;
-    }
+   
 }
