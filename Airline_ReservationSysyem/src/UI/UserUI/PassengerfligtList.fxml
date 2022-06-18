@@ -14,7 +14,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FlightListController">
    <children>
-      <TableView fixedCellSize="0.0" layoutX="6.0" layoutY="70.0" prefHeight="417.0" prefWidth="888.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="70.0">
+      <TableView fx:id="flightlistTable" fixedCellSize="0.0" layoutX="6.0" layoutY="70.0" prefHeight="417.0" prefWidth="888.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="70.0">
         <columns>
             <TableColumn fx:id="ColFlightNumber" maxWidth="1.7976931348623157E308" prefWidth="127.0" text="Flight Number" />
           <TableColumn fx:id="ColPlaneNumber" maxWidth="1.7976931348623157E308" prefWidth="114.0" text="Plane Number" />

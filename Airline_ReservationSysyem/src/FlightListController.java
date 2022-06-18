@@ -1,19 +1,26 @@
-import java.io.IOException;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Callback;
 
 public class FlightListController extends SceneSwitcher {
 
     @FXML
     private Button ButtonSearch;
+
+    @FXML
+    private TableView<Data> flightlistTable;
 
     @FXML
     private TableColumn<?, ?> ColAirPortTime;
@@ -86,14 +93,41 @@ public class FlightListController extends SceneSwitcher {
 
     }
 
-    @FXML
-    void btnBookClicked(ActionEvent event) {
-        try {
-            AnchorPane signUP = FXMLLoader.load(getClass().getResource("UI/UserUI/BookTicket.fxml"));
-            rootAnchorPane.getChildren().setAll(signUP);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void addButtonToTable() {
+        TableColumn<Data, Void> colBtn = new TableColumn("book Column");
+
+        Callback<TableColumn<Data, Void>, TableCell<Data, Void>> cellFactory = new Callback<TableColumn<Data, Void>, TableCell<Data, Void>>() {
+            @Override
+            public TableCell<Data, Void> call(final TableColumn<Data, Void> param) {
+                final TableCell<Data, Void> cell = new TableCell<Data, Void>() {
+
+                    private final Button btn = new Button("book");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            Data data = getTableView().getItems().get(getIndex());
+                            System.out.println("selectedData: " + data);
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        colBtn.setCellFactory(cellFactory);
+
+        flightlistTable.getColumns().add(colBtn);
+
     }
 
 }

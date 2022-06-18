@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,6 +24,13 @@ public class MainController extends LoginController {
 
     @FXML
     public BorderPane MainBorderpane;
+
+    private App main;
+
+    // connect main class to controller
+    public void setMain(App main) {
+        this.main = main;
+    }
 
     @FXML
     void ButtonFlihtClicked(ActionEvent event) {
