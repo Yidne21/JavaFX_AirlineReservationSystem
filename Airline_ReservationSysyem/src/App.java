@@ -24,9 +24,9 @@ public class App extends Application {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("UI/CommenUI/Main.fxml"));
             AnchorPane pane = loader.load();
 
-            // controller
-            MainController mainController = loader.getController();
-            mainController.setMain(this);
+            // // controller
+            // MainController mainController = loader.getController();
+            // mainController.setMain(this);
 
             // scene on stage
             Scene scene = new Scene(pane);

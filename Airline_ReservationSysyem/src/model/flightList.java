@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 public class flightList extends SceneSwitcher {
 
     int schedule_id;
-    int flightNumber;
     String flight_name;
     String from;
     String destination;
@@ -92,6 +91,7 @@ public class flightList extends SceneSwitcher {
         this.ticket_price = ticket_price;
     }
 
+<<<<<<< HEAD
     public int getFlightNumber() {
         return flightNumber;
     }
@@ -99,4 +99,15 @@ public class flightList extends SceneSwitcher {
     public void setFlightNumber(int flightNumber) {
         this.flightNumber = flightNumber;
     }
+=======
+    public Button getBook() {
+        return book;
+    }
+
+    public void setBook(Button book) {
+        this.book = book;
+    }
+
+   
+>>>>>>> 17014ff5b1e6c61fe08c4bfea01d2120dbbfba4e
 }

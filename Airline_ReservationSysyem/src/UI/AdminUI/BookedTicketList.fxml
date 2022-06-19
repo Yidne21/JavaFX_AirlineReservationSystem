@@ -13,16 +13,16 @@
 
 <AnchorPane prefHeight="436.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookedTicketController">
    <children>
-      <TableView layoutX="-15.0" layoutY="71.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+      <TableView fx:id="tbview" layoutX="-15.0" layoutY="71.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
         <columns>
-          <TableColumn fx:id="flightNameColumn" prefWidth="101.0" text="Flight Name" />
-          <TableColumn fx:id="userNameColumn" prefWidth="109.0" text="User Name" />
-            <TableColumn fx:id="mobileNoColumn" prefWidth="93.0" text="Mobile No." />
-            <TableColumn fx:id="bookDateColumn" prefWidth="38.0" text="Book Date" />
-            <TableColumn fx:id="emalIdColumn" prefWidth="75.0" text="Email Id" />
-            <TableColumn fx:id="noOfPersonColumn" prefWidth="106.0" text="No of Person" />
-            <TableColumn fx:id="ticketPriceColumn" prefWidth="104.0" text="Ticket Price" />
-            <TableColumn fx:id="finalPriceColumn" prefWidth="118.0" text="Final Price" />
+          <TableColumn fx:id="FirstNameColumn" prefWidth="87.0" text="First Name" />
+          <TableColumn fx:id="LastNameColumn" prefWidth="93.0" text="Last Name" />
+            <TableColumn fx:id="mobileNoColumn" prefWidth="95.0" text="Mobile No." />
+            <TableColumn fx:id="bookDateColumn" prefWidth="108.0" text="Book Date" />
+            <TableColumn fx:id="emalIdColumn" prefWidth="82.0" text="Email Id" />
+            <TableColumn fx:id="noOfPersonColumn" prefWidth="85.0" text="No of Person" />
+            <TableColumn fx:id="ticketPriceColumn" prefWidth="107.0" text="Ticket Price" />
+            <TableColumn fx:id="finalPriceColumn" prefWidth="87.0" text="Final Price" />
         </columns>
       </TableView>
       <HBox alignment="BOTTOM_RIGHT" layoutX="32.0" layoutY="529.0" prefHeight="50.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

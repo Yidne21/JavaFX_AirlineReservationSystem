@@ -12,27 +12,25 @@
 
 <AnchorPane prefHeight="493.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminFlightList">
    <children>
-      <TableView layoutX="13.0" layoutY="65.0" prefHeight="377.0" prefWidth="784.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="71.0">
+      <TableView fx:id="tbview" layoutX="13.0" layoutY="65.0" prefHeight="377.0" prefWidth="784.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="71.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Flight No" />
-            <TableColumn fx:id="flightNameColumn" prefWidth="108.0" text="Flight Name" />
+          <TableColumn fx:id="flightNoColumn" prefWidth="75.0" text="Flight No" />
             <TableColumn fx:id="fromCityColumn" prefWidth="76.0" text="From city" />
             <TableColumn fx:id="toCityColumn" prefWidth="84.0" text="To city" />
             <TableColumn fx:id="dateColumn" prefWidth="57.0" text="Date" />
             <TableColumn fx:id="timeColumn" prefWidth="50.0" text="Time" />
-            <TableColumn fx:id="airpotNameColumn" prefWidth="113.0" text="AirPort Name" />
             <TableColumn fx:id="ticketPriceColumn" prefWidth="104.0" text="Ticket Price" />
             <TableColumn fx:id="editColumn" prefWidth="115.0" text="Edit" />
         </columns>
       </TableView>
       <HBox alignment="CENTER" layoutY="30.0" spacing="20.0" style="-fx-background-color: #2596be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <children>
-            <Label text="Flight Name" textFill="WHITE">
+            <Label text="From city" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="searchByName" promptText="Search By Name" />
+            <TextField fx:id="searchByCity" promptText="Search city" />
             <Label text="Flight No." textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
