@@ -2,21 +2,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
-import java.sql.Statement;
 
 public class User_Queries {
     Database database = new Database();
     PreparedStatement selectAll;
     PreparedStatement Insert;
+    PreparedStatement register;
 
     public User_Queries() {
         try {
             Connection connection = database.Connection();
             selectAll = connection.prepareStatement("select * from user");
-            Insert = connection.prepareStatement(
-                    " insert into flight_schedule (flightNumber , planeNumber , from_ , to_ , date, time, Rout , AirpotName , ticketPrice  ) values (? , ? , ? , ? , ? , ? , ?, ?,? );");
-            
+            Insert = connection.prepareStatement(" insert into flight_schedule (flightNumber , planeNumber , from_ , to_ , date, time, Rout , AirpotName , ticketPrice  ) values (? , ? , ? , ? , ? , ? , ?, ?,? );");
+            register = connection.prepareStatement(" insert into user (fname , lname , email , phone , pass_word, roles) values (? , ? , ? , ? , ? , ? );");
 
         } catch (SQLException | ClassNotFoundException e) {
 
@@ -46,31 +44,29 @@ public class User_Queries {
 
         }
     }
-
-    public void insertValues() {
+    public int AddUser(String fName, String lName, String Email, String Phone, String password,  String user) {
         try {
-
-            Insert.setString(1, "ff");
-            Insert.setString(2, "ff");
-            Insert.setString(3, "ff");
-            Insert.setString(4, "ff");
-            Insert.setString(5, "ff");
-            Insert.setString(6, "2021/02/02");
-            Insert.setString(7, "ff");
-            Insert.setString(8, "ff");
-            Insert.executeUpdate();
+            register.setString(1, fName);
+            register.setString(2, lName);
+            register.setString(3, Email);
+            register.setString(4, Phone);
+            register.setString(5, password);
+            register.setString(6, user);
+           return  register.executeUpdate();
 
         } catch (Exception e) {
             System.out.println(e);
         }
+        return 0;
     }
 
-    public int check(String username, String password, String user) {
+    
+    public int check(String username, String password) {
         try (ResultSet resultSet = selectAll.executeQuery()) {
             int returned = 0;
             while (resultSet.next()) {
                 if (resultSet.getString(4).equals(username)
-                        && (resultSet.getString(6).equals(password) && (resultSet.getString(9).equals(user)))) {
+                        && (resultSet.getString(6).equals(password))) {
                     returned = 1;
                     break;
                 } else {

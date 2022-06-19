@@ -25,12 +25,12 @@ public class MainController extends LoginController {
     @FXML
     public BorderPane MainBorderpane;
 
-    private App main;
+    // private App main;
 
-    // connect main class to controller
-    public void setMain(App main) {
-        this.main = main;
-    }
+    // // connect main class to controller
+    // public void setMain(App main) {
+    //     this.main = main;
+    // }
 
     @FXML
     void ButtonFlihtClicked(ActionEvent event) throws IOException {
