@@ -1,8 +1,10 @@
 package model;
 
+import Utility.SceneSwitcher;
+
 import javafx.scene.control.Button;
 
-public class flightList {
+public class flightList extends SceneSwitcher {
 
     int schedule_id;
     int flightNumber;
@@ -13,10 +15,9 @@ public class flightList {
     String arrival_time;
     String destination_time;
     int ticket_price;
-    Button book = new Button("book");
 
     public flightList(int schedule_id, int i, String flight_name, String from, String destination, String date,
-            String arrival_time, String destination_time, int ticket_price, Button book) {
+            String arrival_time, String destination_time, int ticket_price) {
         this.schedule_id = schedule_id;
         this.flight_name = flight_name;
         this.from = from;
@@ -25,12 +26,6 @@ public class flightList {
         this.arrival_time = arrival_time;
         this.destination_time = destination_time;
         this.ticket_price = ticket_price;
-        this.book = book;
-        book.setStyle("-fx-base: coral;");
-
-        book.setOnAction(e -> {
-
-        });
     }
 
     public int getSchedule_id() {
@@ -95,14 +90,6 @@ public class flightList {
 
     public void setTicket_price(int ticket_price) {
         this.ticket_price = ticket_price;
-    }
-
-    public Button getBook() {
-        return book;
-    }
-
-    public void setBook(Button book) {
-        this.book = book;
     }
 
     public int getFlightNumber() {

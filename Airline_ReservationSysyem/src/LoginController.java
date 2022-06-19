@@ -1,5 +1,7 @@
 
 import java.io.IOException;
+
+import Utility.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +44,8 @@ public class LoginController extends SceneSwitcher {
 
     @FXML
     void loginBtnClicked(ActionEvent event) throws IOException {
+        MainController mainController = new MainController();
+        mainController.setIslogin(true);
         root = getScene("UserUI/userDashboard");
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

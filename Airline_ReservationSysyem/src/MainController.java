@@ -25,6 +25,16 @@ public class MainController extends LoginController {
     @FXML
     public BorderPane MainBorderpane;
 
+    public static Boolean islogin = false;
+
+    public Boolean getIslogin() {
+        return islogin;
+    }
+
+    public void setIslogin(Boolean islogin) {
+        MainController.islogin = islogin;
+    }
+
     private App main;
 
     // connect main class to controller

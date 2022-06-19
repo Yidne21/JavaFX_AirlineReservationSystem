@@ -52,7 +52,7 @@ public class DataAccessQueries {
                         resultSet.getString(6),
                         resultSet.getString(7),
                         resultSet.getString(8),
-                        resultSet.getInt(9), new Button("book")));
+                        resultSet.getInt(9)));
             }
             return result;
         } catch (SQLException e) {

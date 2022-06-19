@@ -1,5 +1,7 @@
 
 import java.io.IOException;
+
+import Utility.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -29,7 +31,7 @@ public class userDashBoardController extends SceneSwitcher {
     private ImageView imageView;
 
     @FXML
-    private BorderPane rootBorderpane;
+    public BorderPane rootBorderpane;
 
     PaneSwicher swicher = new PaneSwicher();
 
@@ -41,6 +43,8 @@ public class userDashBoardController extends SceneSwitcher {
 
     @FXML
     void btnLogoutClicked(ActionEvent event) throws IOException {
+        MainController mainController = new MainController();
+        mainController.setIslogin(false);
         root = getScene("CommenUI/Main");
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

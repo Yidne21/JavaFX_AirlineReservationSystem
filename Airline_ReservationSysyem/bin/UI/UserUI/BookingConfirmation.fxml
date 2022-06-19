@@ -12,7 +12,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ConfirmationController">
    <children>
-      <HBox alignment="CENTER" layoutX="200.0" layoutY="3.0" style="-fx-background-color: #2596be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="200.0" layoutY="3.0" prefHeight="44.0" prefWidth="397.0" style="-fx-background-color: #2596be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" text="Confirmation" textAlignment="JUSTIFY">
                <font>
@@ -31,19 +31,18 @@
          </padding>
       </HBox>
       <HBox alignment="TOP_CENTER" layoutY="135.0" style="-fx-background-color: #2596be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <GridPane alignment="TOP_CENTER" hgap="5.0" layoutY="31.0" vgap="5.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
+      <GridPane alignment="TOP_CENTER" hgap="5.0" layoutX="36.0" layoutY="43.0" style="-fx-background-color: #ffffff;" vgap="5.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="43.0">
          <columnConstraints>
-            <ColumnConstraints halignment="RIGHT" maxWidth="320.0" minWidth="10.0" prefWidth="310.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="10.0" prefWidth="285.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="320.0" minWidth="10.0" prefWidth="310.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="381.0" minWidth="10.0" prefWidth="285.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Flight Id :" GridPane.rowIndex="1">
@@ -56,37 +55,36 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="277.0" layoutY="20.0" text="Seat number :" GridPane.rowIndex="3">
+            <Label layoutX="277.0" layoutY="20.0" text="Seat number :" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="108.0" layoutY="84.0" text="Date :" GridPane.rowIndex="4">
+            <Label layoutX="108.0" layoutY="84.0" text="Date :" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="111.0" layoutY="88.0" text="Arrival Time :" GridPane.rowIndex="5">
+            <Label layoutX="111.0" layoutY="88.0" text="Arrival Time :" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="110.0" layoutY="90.0" text="Price :" GridPane.rowIndex="6">
+            <Label layoutX="110.0" layoutY="90.0" text="Price :" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
             <Label fx:id="Lableflightname" text="Label" GridPane.columnIndex="1" />
             <Label fx:id="labelFlightID" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="lableSeatNumber" prefHeight="16.0" prefWidth="51.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="lableDate" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="LableArrivalTime" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="lablePrice" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="lableSeatNumber" prefHeight="16.0" prefWidth="51.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="lableDate" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="LableArrivalTime" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="lablePrice" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </GridPane>
-      <Label layoutX="-71.0" layoutY="-45.0" text="Label" />
    </children>
 </AnchorPane>
