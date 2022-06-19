@@ -1,6 +1,4 @@
 import java.io.IOException;
-
-import Utility.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -25,13 +23,24 @@ public class AdminLoginController extends SceneSwitcher {
     @FXML
     private AnchorPane rootAnchorPane;
 
+    int confirm;
+    DataAccessQueries database = new DataAccessQueries();
+
     @FXML
     void loginBtnClicked(ActionEvent event) throws IOException {
-        root = getScene("AdminUI/AdminDashboard");
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        confirm = database.check(emailTF.getText(), passwordTF.getText(), "Admin");
+        if (confirm == 1) {
+            try {
+                root = getScene("AdminUI/AdminDashboard");
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+
     }
 
 }
