@@ -9,8 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -28,11 +26,6 @@ public class LoginController extends SceneSwitcher {
 
     @FXML
     public ImageView imageView;
-    @FXML
-    private TextField emailTF;
-
-    @FXML
-    private PasswordField passwordTF;
 
     @FXML
     void btnSignUpClicked(ActionEvent event) throws IOException {
@@ -49,12 +42,8 @@ public class LoginController extends SceneSwitcher {
 
     }
 
-    int confirm;
-    User_Queries user_Queries = new User_Queries();
-
     @FXML
     void loginBtnClicked(ActionEvent event) throws IOException {
-<<<<<<< HEAD
         MainController mainController = new MainController();
         mainController.setIslogin(true);
         root = getScene("UserUI/userDashboard");
@@ -62,20 +51,7 @@ public class LoginController extends SceneSwitcher {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-=======
-        confirm = user_Queries.check(emailTF.getText(), passwordTF.getText());
-        if (confirm == 1) {
-            try {
-                root = getScene("UserUI/userDashboard");
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
->>>>>>> 17014ff5b1e6c61fe08c4bfea01d2120dbbfba4e
 
     }
+
 }

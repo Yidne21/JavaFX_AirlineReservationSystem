@@ -1,36 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import java.net.URL?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<<<<<<< HEAD
 <AnchorPane fx:id="mainAnchor" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
-=======
-<AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
->>>>>>> 17014ff5b1e6c61fe08c4bfea01d2120dbbfba4e
    <children>
-      <BorderPane fx:id="MainBorderpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="MainBorderpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #145369;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <ImageView fitHeight="557.0" fitWidth="799.0" pickOnBounds="true" BorderPane.alignment="CENTER_LEFT">
-               <image>
-                  <Image url="@Home.jpg" />
-               </image></ImageView>
+            <ImageView fitHeight="660.0" fitWidth="799.0" pickOnBounds="true" BorderPane.alignment="CENTER_LEFT" />
          </center>
          <top>
-            <HBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="700.0" spacing="5.0" BorderPane.alignment="TOP_LEFT">
+            <HBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="700.0" spacing="5.0" style="-fx-background-color: #041014;" BorderPane.alignment="TOP_LEFT">
                <children>
-                  <Button fx:id="ButtonHome" mnemonicParsing="false" onAction="#ButtonHomeClicked" text="Home" />
-                  <Button fx:id="ButtonFlight" mnemonicParsing="false" onAction="#ButtonFlihtClicked" text="Flight" />
-                  <Button fx:id="ButtonLogin" mnemonicParsing="false" onAction="#ButtonLoginCliked" text="Login" />
-                  <Button fx:id="btnSignUp" mnemonicParsing="false" onAction="#btnSignUpClicked" text="Sign Up" />
+                  <Button fx:id="ButtonHome" mnemonicParsing="false" onAction="#ButtonHomeClicked" style="-fx-background-color: #2596be;" text="Home" textFill="WHITE" />
+                  <Button fx:id="ButtonFlight" mnemonicParsing="false" onAction="#ButtonFlihtClicked" style="-fx-background-color: #2596be;" text="Flight" textFill="WHITE" />
+                  <Button fx:id="ButtonLogin" mnemonicParsing="false" onAction="#ButtonLoginCliked" style="-fx-background-color: #2596be;" text="Login" textFill="WHITE" />
                   <Pane maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="BtnAdmin" mnemonicParsing="false" onAction="#btnAdminClicked" text="Admin" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="BtnAdmin" mnemonicParsing="false" onAction="#btnAdminClicked" style="-fx-background-color: #2596be;" text="Admin" textFill="WHITE" HBox.hgrow="ALWAYS" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -39,8 +30,4 @@
          </top>
       </BorderPane>
    </children>
-   <stylesheets>
-      <URL value="@style.css" />
-      <URL value="@../../Cascading%20Style%20Sheet/style.css" />
-   </stylesheets>
 </AnchorPane>

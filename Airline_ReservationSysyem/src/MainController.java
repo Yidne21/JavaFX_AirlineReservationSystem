@@ -25,7 +25,6 @@ public class MainController extends LoginController {
     @FXML
     public BorderPane MainBorderpane;
 
-<<<<<<< HEAD
     public static Boolean islogin = false;
 
     public Boolean getIslogin() {
@@ -37,14 +36,11 @@ public class MainController extends LoginController {
     }
 
     private App main;
-=======
-    // private App main;
->>>>>>> 17014ff5b1e6c61fe08c4bfea01d2120dbbfba4e
 
-    // // connect main class to controller
-    // public void setMain(App main) {
-    //     this.main = main;
-    // }
+    // connect main class to controller
+    public void setMain(App main) {
+        this.main = main;
+    }
 
     @FXML
     void ButtonFlihtClicked(ActionEvent event) throws IOException {
