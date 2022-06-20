@@ -35,7 +35,7 @@
                   <Image url="@../../Icon/user_64.png" />
                </image>
             </ImageView>
-            <Label text="Name" textFill="WHITE" />
+            <Label fx:id="Namelable" text="Name" textFill="WHITE" />
          </children>
       </VBox>
    </left>

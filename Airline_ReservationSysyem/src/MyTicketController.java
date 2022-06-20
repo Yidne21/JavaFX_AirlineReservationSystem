@@ -1,90 +1,90 @@
-
-import java.net.URL;
-import java.util.ResourceBundle;
-
+import java.sql.SQLException;
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.BookedTicket;
 import model.DataAccessQueries;
-import model.Ticket;
 
-public class MyTicketController implements Initializable {
-
-    @FXML
-    private DatePicker DateTF;
+public class MyTicketController {
 
     @FXML
-    private TableColumn<Ticket, String> bookDateColumn;
+    private TableView<BookedTicket> BookedtableView;
 
     @FXML
-    private TableColumn<Ticket, String> emalIdColumn;
+    private TableColumn<BookedTicket, Integer> ColscheduleID;
 
     @FXML
-    private TableColumn<Ticket, Integer> finalPriceColumn;
+    private TableColumn<BookedTicket, String> bookDateColumn;
 
     @FXML
-    private TextField byFirstName;
+    private TableColumn<BookedTicket, Integer> colSeatNumber;
 
     @FXML
-    private TableColumn<Ticket, String> flirstNameColumn;
+    private TableColumn<BookedTicket, String> emalIdColumn;
 
     @FXML
-    private TableColumn<Ticket, String> lastNameColumn;
+    private TableColumn<BookedTicket, Integer> ticketPriceColumn;
 
-    @FXML
-    private TableColumn<Ticket, String> mobileNoColumn;
-
-    @FXML
-    private TableColumn<Ticket, Integer> noOfPersonColumn;
+    public static TableView<BookedTicket> bTableView;
 
     @FXML
     private Button serachButton;
 
     @FXML
-    private TableColumn<Ticket, Integer> ticketPriceColumn;
+    private TextField SeatIDTF;
 
     @FXML
-    private TableView<Ticket> tbview;
+    private JFXButton btnCancel;
 
     @FXML
-    void serachBtnClicked(ActionEvent event) {
+    private TextField emailTf;
+
+    @FXML
+    void serachBtnClicked(ActionEvent event) throws SQLException {
+        initTable();
+        loadData();
+    }
+
+    @FXML
+    void btnCancelClicked(ActionEvent event) throws SQLException {
+        int success = dataAccessQueries.DeleteBookedSeat(Integer.parseInt(SeatIDTF.getText()));
+        if (success == 1) {
+            dataAccessQueries.UpdateSeat(Integer.parseInt(SeatIDTF.getText()), "avil");
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.contentTextProperty().set("Ticket Booked seccessfully");
+            alert.show();
+            ;
+        }
 
     }
 
-    DataAccessQueries dq = new DataAccessQueries();
-    ObservableList<Ticket> f = FXCollections.observableArrayList();
+    DataAccessQueries dataAccessQueries = new DataAccessQueries();
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        // f.setAll(dq.ticket());
+    private void initTable() {
+        initCols();
+    }
 
-        // flirstNameColumn.setCellValueFactory(new PropertyValueFactory<Ticket,
-        // String>("FirstName"));
-        // lastNameColumn.setCellValueFactory(new PropertyValueFactory<Ticket,
-        // String>("Lastname"));
-        // mobileNoColumn.setCellValueFactory(new PropertyValueFactory<Ticket,
-        // String>("phone"));
-        // bookDateColumn.setCellValueFactory(new PropertyValueFactory<Ticket,
-        // String>("date"));
-        // emalIdColumn.setCellValueFactory(new PropertyValueFactory<Ticket,
-        // String>("email"));
-        // noOfPersonColumn.setCellValueFactory(new PropertyValueFactory<Ticket,
-        // Integer>("no_person"));
-        // ticketPriceColumn.setCellValueFactory(new PropertyValueFactory<Ticket,
-        // Integer>("ticket_price"));
-        // finalPriceColumn.setCellValueFactory(new PropertyValueFactory<Ticket,
-        // Integer>("total_price"));
+    private void initCols() {
+        ColscheduleID.setCellValueFactory(new PropertyValueFactory<BookedTicket, Integer>("schedule_id"));
+        bookDateColumn.setCellValueFactory(new PropertyValueFactory<BookedTicket, String>("DATE_"));
+        colSeatNumber.setCellValueFactory(new PropertyValueFactory<BookedTicket, Integer>("seatid"));
+        emalIdColumn.setCellValueFactory(new PropertyValueFactory<BookedTicket, String>("email"));
+        ticketPriceColumn.setCellValueFactory(new PropertyValueFactory<BookedTicket, Integer>("ticketPrice"));
+    }
 
-        // tbview.setItems(f);
-
+    private void loadData() throws SQLException {
+        ObservableList<BookedTicket> data = FXCollections.observableArrayList();
+        data.addAll(dataAccessQueries.getMyTicket(emailTf.getText()));
+        BookedtableView.setItems(data);
     }
 
 }

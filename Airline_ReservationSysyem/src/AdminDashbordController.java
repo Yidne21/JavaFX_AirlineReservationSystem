@@ -5,6 +5,7 @@ import Utility.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Node;
@@ -12,6 +13,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class AdminDashbordController extends SceneSwitcher {
+
+    @FXML
+    public Label Namelable;
 
     @FXML
     public Button btnBookedTicketList;

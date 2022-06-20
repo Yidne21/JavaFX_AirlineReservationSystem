@@ -1,90 +1,60 @@
 package model;
 
 public class BookedTicket {
-    String fname;
-    String lname;
-    String phone;
+    String DATE_;
+
     String email;
-    int no_person;
-    int ticket_price;
-    int total_price;
-    String date;
+    int seatid;
 
-    public BookedTicket(String fname, String lname, String phone, String email, String date, int no_person,
-            int ticket_price,
-            int total_price) {
-        this.fname = fname;
-        this.lname = lname;
-        this.phone = phone;
+    int schedule_id;
+
+    int ticketPrice;
+
+    public BookedTicket(String dATE_, String email, int seatid, int schedule_id, int ticketPrice) {
+        DATE_ = dATE_;
         this.email = email;
-        this.no_person = no_person;
-        this.ticket_price = ticket_price;
-        this.total_price = total_price;
-        this.date = date;
+        this.seatid = seatid;
+        this.schedule_id = schedule_id;
+        this.ticketPrice = ticketPrice;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setSeatid(int seatid) {
+        this.seatid = seatid;
     }
 
-    public String getFname() {
-        return fname;
+    public int getTicketPrice() {
+        return ticketPrice;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTicketPrice(int ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public int getSeatid() {
+        return seatid;
     }
 
-    public int getNo_person() {
-        return no_person;
+    public String getDATE_() {
+        return DATE_;
     }
 
-    public void setNo_person(int no_person) {
-        this.no_person = no_person;
+    public void setDATE_(String dATE_) {
+        DATE_ = dATE_;
     }
 
-    public void setTicket_price(int ticket_price) {
-        this.ticket_price = ticket_price;
+    public int getSchedule_id() {
+        return schedule_id;
     }
 
-    public int getTicket_price() {
-        return ticket_price;
+    public void setSchedule_id(int schedule_id) {
+        this.schedule_id = schedule_id;
     }
-
-    public void setTotal_price(int total_price) {
-        this.total_price = total_price;
-    }
-
-    public int getTotal_price() {
-        return total_price;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
 }

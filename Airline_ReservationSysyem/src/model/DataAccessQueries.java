@@ -28,6 +28,7 @@ public class DataAccessQueries {
     private PreparedStatement getBookedlist;
     private PreparedStatement getMyTicket;
     private ResultSet resultSet;
+    private PreparedStatement DeleteBookedSeat;
 
     public DataAccessQueries() {
         try {
@@ -49,6 +50,11 @@ public class DataAccessQueries {
                     " insert into user (fname , lname , email, pass_word, roles) values (? , ? , ? , ? , ? )");
             UpdateSeat = connection.prepareStatement("UPDATE seats SET status = ? WHERE seat_id = ?;");
             deleteFlightSchedule = connection.prepareStatement("DELETE FROM flight_schedule WHERE schedule_id=?");
+            getMyTicket = connection.prepareStatement(
+                    "SELECT seatid, books.schedule_id, email, DATE_, ticketPrice FROM books INNER JOIN flight_schedule ON books.schedule_id = flight_schedule.schedule_id WHERE email =?;");
+            getBookedlist = connection.prepareStatement(
+                    "SELECT seatid, books.schedule_id, email, DATE_, ticketPrice FROM books INNER JOIN flight_schedule ON books.schedule_id = flight_schedule.schedule_id");
+            DeleteBookedSeat = connection.prepareStatement("DELETE FROM books WHERE seatid=?");
         } catch (SQLException ex) {
 
             ex.printStackTrace();
@@ -229,5 +235,43 @@ public class DataAccessQueries {
     public int deleteFlightSchedule(int schedule_id) throws SQLException {
         deleteFlightSchedule.setInt(1, schedule_id);
         return deleteFlightSchedule.executeUpdate();
+    }
+
+    // SELECT seatid, books.schedule_id, email, DATE_, ticketPrice FROM books INNER
+    // JOIN
+    // flight_schedule ON books.schedule_id = flight_schedule.schedule_id WHERE
+    // email =?
+    public List<BookedTicket> getMyTicket(String email) throws SQLException {
+        List<BookedTicket> result = new ArrayList<>();
+        getMyTicket.setString(1, email);
+        resultSet = getMyTicket.executeQuery();
+        while (resultSet.next()) {
+            result.add(new BookedTicket(
+                    resultSet.getString(4),
+                    resultSet.getString(3),
+                    resultSet.getInt(1),
+                    resultSet.getInt(2),
+                    resultSet.getInt(5)));
+        }
+        return result;
+    }
+
+    public List<BookedTicket> getBookedTickets() throws SQLException {
+        List<BookedTicket> result = new ArrayList<>();
+        resultSet = getBookedlist.executeQuery();
+        while (resultSet.next()) {
+            result.add(new BookedTicket(
+                    resultSet.getString(4),
+                    resultSet.getString(3),
+                    resultSet.getInt(1),
+                    resultSet.getInt(2),
+                    resultSet.getInt(5)));
+        }
+        return result;
+    }
+
+    public int DeleteBookedSeat(int schedule_id) throws SQLException {
+        DeleteBookedSeat.setInt(1, schedule_id);
+        return DeleteBookedSeat.executeUpdate();
     }
 }
