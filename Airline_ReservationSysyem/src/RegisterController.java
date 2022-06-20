@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Node;
 import javafx.stage.Stage;
+import model.DataAccessQueries;
 
 public class RegisterController extends SceneSwitcher {
 
@@ -35,7 +36,7 @@ public class RegisterController extends SceneSwitcher {
     private TextField conforimTextFild;
 
     @FXML
-    private TextField loginTextFild;
+    private TextField EmailTextFild;
 
     @FXML
     private AnchorPane rootAnchorpane;
@@ -54,18 +55,31 @@ public class RegisterController extends SceneSwitcher {
         stage.show();
     }
 
+    DataAccessQueries dataAccessQueries = new DataAccessQueries();
+    int confirm;
+
     @FXML
     void SignupButtonClicked(ActionEvent event) throws IOException {
-        PaneSwicher swicher = new PaneSwicher();
-        Pane view = swicher.getPane("CommenUI/login");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/CommenUI/Main.fxml"));
-        Parent root = loader.load();
-        MainController mainController = loader.getController();
-        mainController.MainBorderpane.setCenter(view);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+        if (FristNameTextFild.getText() != null && LastNameTextFild.getText() != null && EmailTextFild.getText() != null
+                && PasswardTextFild.getText() != null && conforimTextFild.getText() != null) {
+            if (PasswardTextFild.getText().equals(conforimTextFild.getText())) {
+                confirm = dataAccessQueries.AddUser(FristNameTextFild.getText(), LastNameTextFild.getText(),
+                        EmailTextFild.getText(), PasswardTextFild.getText(), "user");
+                if (confirm == 1) {
+                    PaneSwicher swicher = new PaneSwicher();
+                    Pane view = swicher.getPane("CommenUI/login");
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/CommenUI/Main.fxml"));
+                    Parent root = loader.load();
+                    MainController mainController = loader.getController();
+                    mainController.MainBorderpane.setCenter(view);
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
+            }
 
+        }
+
+    }
 }

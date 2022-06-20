@@ -42,12 +42,12 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <TextField promptText="Email" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1">
+            <TextField fx:id="emailTF" promptText="Email" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <PasswordField promptText="Password" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PasswordField fx:id="passwordTF" promptText="Password" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font>

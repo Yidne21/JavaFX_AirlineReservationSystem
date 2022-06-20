@@ -61,7 +61,7 @@
             </Label>
             <TextField fx:id="FristNameTextFild" promptText="Frist Name here" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" />
             <TextField fx:id="LastNameTextFild" promptText="Last name here" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="loginTextFild" promptText="Email here" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="EmailTextFild" promptText="Email here" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="PasswardTextFild" promptText="passward Fild" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="conforimTextFild" promptText="Confrim passward" style="-fx-background-color: #d3eaf2;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <HBox spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">

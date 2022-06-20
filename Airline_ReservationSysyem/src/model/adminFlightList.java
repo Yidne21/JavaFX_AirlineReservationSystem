@@ -1,28 +1,23 @@
 package model;
 
-import Utility.SceneSwitcher;
-
-public class flightList extends SceneSwitcher {
+public class adminFlightList {
 
     int schedule_id;
-    int ticketId;
     String from;
     String destination;
     String date;
-    String arrival_time;
-    String destination_time;
+    String departure_time;
     int ticket_price;
 
-    public flightList(int schedule_id, int ticketId, String from, String destination, String date,
-            String arrival_time, String destination_time, int ticket_price) {
+    public adminFlightList(int schedule_id, String from, String destination, String date, String departure_time,
+            int ticket_price) {
         this.schedule_id = schedule_id;
-        this.ticketId = ticketId;
         this.from = from;
         this.destination = destination;
         this.date = date;
-        this.arrival_time = arrival_time;
-        this.destination_time = destination_time;
+        this.departure_time = departure_time;
         this.ticket_price = ticket_price;
+
     }
 
     public int getSchedule_id() {
@@ -57,20 +52,12 @@ public class flightList extends SceneSwitcher {
         this.date = date;
     }
 
-    public String getDestination_time() {
-        return destination_time;
+    public String getDeparture_time() {
+        return departure_time;
     }
 
-    public void setDestination_time(String destination_time) {
-        this.destination_time = destination_time;
-    }
-
-    public String getArrival_time() {
-        return arrival_time;
-    }
-
-    public void setArrival_time(String arrival_time) {
-        this.arrival_time = arrival_time;
+    public void setDeparture_time(String departure_time) {
+        this.departure_time = departure_time;
     }
 
     public int getTicket_price() {
@@ -81,11 +68,4 @@ public class flightList extends SceneSwitcher {
         this.ticket_price = ticket_price;
     }
 
-    public int getTicketId() {
-        return ticketId;
-    }
-
-    public void setTicketId(int ticketId) {
-        this.ticketId = ticketId;
-    }
 }

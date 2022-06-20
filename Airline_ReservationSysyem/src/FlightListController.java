@@ -2,9 +2,7 @@
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXButton;
-
 import Utility.SceneSwitcher;
 import model.DataAccessQueries;
 import model.flightList;
@@ -17,8 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -50,7 +46,7 @@ public class FlightListController extends SceneSwitcher implements Initializable
         private TableColumn<flightList, String> ColDestinatiionTime;
 
         @FXML
-        private TableColumn<flightList, Integer> ColFlightNumber;
+        private TableColumn<flightList, Integer> ColTicketNumber;
 
         @FXML
         private TableColumn<flightList, String> ColFromCity;
@@ -62,30 +58,17 @@ public class FlightListController extends SceneSwitcher implements Initializable
         private TableColumn<flightList, String> ColToCity;
 
         @FXML
-        private DatePicker DateDatePicker;
-
-        @FXML
         private TextField FromCityTextField;
 
         @FXML
         private TextField ToCityTextField;
-
-        @FXML
-        private ListView<?> BussSeatlistView;
-
-        @FXML
-        private ListView<?> EcoSeatlistView;
-
-        @FXML
-        private TextField flightNumberTF;
-
-        @FXML
-        private TextField planeNumberTF;
-
         @FXML
         private AnchorPane rootAnchorPane;
         @FXML
         private JFXButton btnBook;
+
+        @FXML
+        private TextField scheduleIDTF;
 
         PaneSwicher swicher = new PaneSwicher();
 
@@ -93,8 +76,11 @@ public class FlightListController extends SceneSwitcher implements Initializable
         void btnBookClicked(ActionEvent event) throws IOException {
                 MainController mainController = new MainController();
                 if (mainController.getIslogin()) {
-                        PaneSwicher swicher = new PaneSwicher();
-                        Pane view = swicher.getPane("UserUI/BookingConfirmation");
+                        BookTicketController bookTicketController = new BookTicketController();
+                        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("UI/UserUI/BookTicket.fxml"));
+                        Parent view = loader2.load();
+                        bookTicketController = loader2.getController();
+                        bookTicketController.setFlightNumberTF(scheduleIDTF.getText());
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/UserUI/userDashboard.fxml"));
                         Parent root = loader.load();
                         userDashBoardController userDB = new userDashBoardController();
@@ -119,21 +105,6 @@ public class FlightListController extends SceneSwitcher implements Initializable
 
         }
 
-        @FXML
-        void btnBussiSeeseatClicked(ActionEvent event) {
-
-        }
-
-        @FXML
-        void btnEcoSeeseatClicked(ActionEvent event) {
-
-        }
-
-        @FXML
-        void ButtonSearchClicked(ActionEvent event) {
-
-        }
-
         DataAccessQueries dataAccessQueries = new DataAccessQueries();
 
         @Override
@@ -148,10 +119,10 @@ public class FlightListController extends SceneSwitcher implements Initializable
         }
 
         private void initCols() {
-                ColFlightNumber.setCellValueFactory(
-                                new PropertyValueFactory<flightList, Integer>("flightNumber"));
                 ColScheduleNumber.setCellValueFactory(
                                 new PropertyValueFactory<flightList, Integer>("schedule_id"));
+                ColTicketNumber.setCellValueFactory(
+                                new PropertyValueFactory<flightList, Integer>("ticketId"));
                 ColDate.setCellValueFactory(
                                 new PropertyValueFactory<flightList, String>("date"));
                 ColFromCity.setCellValueFactory(new PropertyValueFactory<flightList, String>("from"));
@@ -168,4 +139,14 @@ public class FlightListController extends SceneSwitcher implements Initializable
                 flightlistTable.setItems(data);
         }
 
+        @FXML
+        void ButtonSearchClicked(ActionEvent event) {
+                if (FromCityTextField.getText() != null && ToCityTextField.getText() != null) {
+                        ObservableList<flightList> data = FXCollections.observableArrayList();
+                        data.addAll(dataAccessQueries.getflightListsFillter(FromCityTextField.getText(),
+                                        ToCityTextField.getText()));
+                        flightlistTable.setItems(data);
+                }
+
+        }
 }
