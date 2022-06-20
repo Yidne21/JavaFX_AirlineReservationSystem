@@ -19,6 +19,7 @@ public class DataAccessQueries {
     private Connection connection;
     PreparedStatement selectAll;
     private PreparedStatement getflightlist;
+<<<<<<< HEAD
     private PreparedStatement getflightlistfillter;
     private PreparedStatement inserIntoBook;
     private PreparedStatement getEcoSeat;
@@ -26,6 +27,10 @@ public class DataAccessQueries {
     private PreparedStatement register;
     private PreparedStatement deleteFlightSchedule;
 
+=======
+    PreparedStatement selectAll;
+    PreparedStatement Insert;
+>>>>>>> 1430c61ce5ae4df9cee3345f6d9895624fc866d0
     ResultSet resultSet = null;
     PreparedStatement selectByCity;
     PreparedStatement selectByFlightNumber;
@@ -61,6 +66,7 @@ public class DataAccessQueries {
                     .prepareStatement(
                             "SELECT firstname, lastname, email FROM studentinfo order by firstname,lastname where email=?");
             getflightlist = connection.prepareStatement(
+<<<<<<< HEAD
                     " select schedule_id, ticketId, from_ , destination , DATE_ , arrival_time , destination_time ,ticketPrice from flight_schedule");
             getflightlistfillter = connection.prepareStatement(
                     " select schedule_id, ticketId, from_ , destination , DATE_ , arrival_time , destination_time ,ticketPrice from flight_schedule where from_ = ? && destination=?");
@@ -77,6 +83,12 @@ public class DataAccessQueries {
                     " insert into user (fname , lname , email, pass_word, roles) values (? , ? , ? , ? , ? )");
             UpdateSeat = connection.prepareStatement("UPDATE seats SET status = ? WHERE seat_id = ?;");
             deleteFlightSchedule = connection.prepareStatement("DELETE FROM flight_schedule WHERE schedule_id=?");
+=======
+                    " select schedule_id, flightNumber, flight_name, from_ , destination , DATE_ , arrival_time , destination_time ,ticketPrice from flight_schedule");
+            selectAll = connection.prepareStatement("select * from user");
+            Insert = connection.prepareStatement(
+                    " insert into flight_schedule (flightNumber , planeNumber , from_ , to_ , Date_, time, Rout , AirpotName , ticketPrice  ) values (? , ? , ? , ? , ? , ? , ?, ?,? );");
+>>>>>>> 1430c61ce5ae4df9cee3345f6d9895624fc866d0
         } catch (SQLException ex) {
 
             ex.printStackTrace();
@@ -375,4 +387,69 @@ public class DataAccessQueries {
             return null;
         }
     }
+<<<<<<< HEAD
 }
+=======
+
+    public int addSchedule(String flightNumber, String planeNumber, String from, String to, String string, String time,
+            String Rout, String AirpotName, String ticketPrice) {
+        System.out.println(flightNumber);
+
+        try {
+            Insert.setString(1, flightNumber);
+            Insert.setString(2, planeNumber);
+            Insert.setString(3, from);
+            Insert.setString(4, to);
+            Insert.setString(5, string);
+            Insert.setString(6, time);
+            Insert.setString(7, Rout);
+            Insert.setString(8, AirpotName);
+            Insert.setString(9, ticketPrice);
+
+            return Insert.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+
+        }
+    }
+
+    public int check(String username, String password, String user) {
+        try (ResultSet resultSet = selectAll.executeQuery()) {
+            int returned = 0;
+            while (resultSet.next()) {
+                if (resultSet.getString(4).equals(username)
+                        && (resultSet.getString(6).equals(password) && (resultSet.getString(9).equals(user)))) {
+                    returned = 1;
+                    break;
+                } else {
+                    returned = 0;
+                }
+
+            }
+            return returned;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public int confirm(String username, String password, String Admin) {
+        try (ResultSet resultSet = selectAll.executeQuery()) {
+            int returned = 0;
+            while (resultSet.next()) {
+                if (resultSet.getString(4).equals(username)
+                        && (resultSet.getString(6).equals(password) && (resultSet.getString(9).equals(Admin)))) {
+                    returned = 1;
+                    break;
+                } else {
+                    returned = 0;
+                }
+
+            }
+            return returned;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+}
+>>>>>>> 1430c61ce5ae4df9cee3345f6d9895624fc866d0
