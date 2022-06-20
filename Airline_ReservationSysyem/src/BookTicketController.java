@@ -69,17 +69,21 @@ public class BookTicketController extends SceneSwitcher {
         setSeatid(seatid);
         BookTicketController.success = dataAccessQueries.inserIntoBook(ticketid, EmailTextFild.getText(), seatid);
         setSuccess(success);
-        swicher = new PaneSwicher();
-        Pane view = swicher.getPane("UserUI/payment");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/UserUI/userDashboard.fxml"));
-        Parent root = loader.load();
-        userDB = new userDashBoardController();
-        userDB = loader.getController();
-        userDB.rootBorderpane.setCenter(view);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        System.out.println(success);
+        System.out.println(getSuccess());
+        if (success == 1) {
+            swicher = new PaneSwicher();
+            Pane view = swicher.getPane("UserUI/payment");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/UserUI/userDashboard.fxml"));
+            Parent root = loader.load();
+            userDB = new userDashBoardController();
+            userDB = loader.getController();
+            userDB.rootBorderpane.setCenter(view);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
 
     }
 

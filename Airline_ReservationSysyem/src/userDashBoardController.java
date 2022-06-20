@@ -10,28 +10,32 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
 public class userDashBoardController extends SceneSwitcher {
 
     @FXML
-    private Label LableName;
+    public Label LableName;
 
     @FXML
-    private Button btnAvilableFlight;
+    public Button btnAvilableFlight;
 
     @FXML
-    private Button btnLogout;
+    public Button btnLogout;
 
     @FXML
-    private Button btnMyticket;
+    public Button btnMyticket;
 
     @FXML
-    private ImageView imageView;
+    public ImageView imageView;
 
     @FXML
     public BorderPane rootBorderpane;
+
+    @FXML
+    public VBox vbox;
 
     PaneSwicher swicher = new PaneSwicher();
 

@@ -12,6 +12,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.DataAccessQueries;
 import model.Ticket;
 
@@ -55,14 +56,6 @@ public class MyTicketController implements Initializable {
 
     @FXML
     void serachBtnClicked(ActionEvent event) {
-
-        if (byFirstName.getText() != null) {
-            f.setAll(dq.getByFirstName(byFirstName.getText()));
-            byFirstName.clear();
-        } else if (DateTF.getValue().toString() != null) {
-
-            f.setAll(dq.getByDate(DateTF.getValue().toString()));
-        }
 
     }
 

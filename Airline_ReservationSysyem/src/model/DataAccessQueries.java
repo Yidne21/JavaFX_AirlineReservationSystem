@@ -1,94 +1,54 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataAccessQueries {
 
-    private static final String URL = "jdbc:mysql://localhost/Airline";
+    private static final String URL = "jdbc:mysql://localhost/ARS";
     private static final String USER = "yidne";
     private static final String PASSWORD = "19ybb21";
 
     private Connection connection;
-    PreparedStatement selectAll;
     private PreparedStatement getflightlist;
-<<<<<<< HEAD
     private PreparedStatement getflightlistfillter;
     private PreparedStatement inserIntoBook;
     private PreparedStatement getEcoSeat;
     private PreparedStatement getBussiSeat;
     private PreparedStatement register;
     private PreparedStatement deleteFlightSchedule;
-
-=======
-    PreparedStatement selectAll;
-    PreparedStatement Insert;
->>>>>>> 1430c61ce5ae4df9cee3345f6d9895624fc866d0
-    ResultSet resultSet = null;
-    PreparedStatement selectByCity;
-    PreparedStatement selectByFlightNumber;
-    PreparedStatement deleteById;
-    PreparedStatement selectByName;
-    PreparedStatement selectByEmail;
-    PreparedStatement selectByDate;
-    PreparedStatement getTicket;
-    PreparedStatement getByFirstName;
-    PreparedStatement getByDate;
-    PreparedStatement selectAllUser;
-    PreparedStatement Insert;
-    PreparedStatement UpdateSeat;
-
-    String deleteQuery = ("  delete  flight_schedule , tickets from flight_schedule  inner join  tickets  on flight_schedule.schedule_id=tickets.scheid where schedule_id= ?;");
-    String getAll = ("select DISTINCT schedule_id , from_ , destination , DATE_ , departure_time , ticketPrice  from flight_schedule;");
-    String byCityQuery = ("select schedule_id, flightNumber, flight_name, from_ , destination , DATE_ , arrival_time , destination_time ,ticketPrice from flight_schedule where from_= ?;");
-    String byFlightNumberQuery = ("select schedule_id , from_ , destination , DATE_ , departure_time , cost  from flight_schedule inner join  tickets  on flight_schedule.schedule_id=tickets.scheid where schedule_id= ?;");
-
-    String byAllQuery = (" select fname , lname , email , phone , dob , no_person , cost , total_price from books inner join user on books.uid_ = user.user_id inner join tickets on   tickets.ticket_id=books.ticketid;");
-    String byNameQuery = ("select   fname , lname , phone , email , no_person , cost as 'Iicket price' , total_price from books inner join user on  books.uid_ = user.id inner join tickets on tickets.ticket_id = books.ticketid where fname=?;");
-    String byEmailQuery = ("select   fname , lname , phone , email , no_person , cost as 'Iicket price' , total_price from books inner join user on  books.uid_ = user.id inner join tickets on tickets.ticket_id = books.ticketid where email=?;");
-
-    String getTicketQuery = ("select fname , lname , phone , dob  , email , no_person ,  cost as ticket_price ,  total_price from user inner join books on user.user_id = books.uid_ inner join tickets on books.ticketid = tickets.ticket_id ;");
-    String getTicketByFirstName = ("select fname , lname , phone , dob  , email , no_person ,  cost as ticket_price ,  total_price from user inner join books on user.user_id = books.uid_ inner join tickets on books.ticketid = tickets.ticket_id where fname=?;");
-    String getTicketByDate = ("select fname , lname , phone , dob  , email , no_person ,  cost as ticket_price ,  total_price from user inner join books on user.user_id = books.uid_ inner join tickets on books.ticketid = tickets.ticket_id where dob=?;");
+    private PreparedStatement selectAllUser;
+    private PreparedStatement Insert;
+    private PreparedStatement UpdateSeat;
+    private PreparedStatement getBookedlist;
+    private PreparedStatement getMyTicket;
+    private ResultSet resultSet;
 
     public DataAccessQueries() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-
-            selectByEmail = connection
-                    .prepareStatement(
-                            "SELECT firstname, lastname, email FROM studentinfo order by firstname,lastname where email=?");
             getflightlist = connection.prepareStatement(
-<<<<<<< HEAD
                     " select schedule_id, ticketId, from_ , destination , DATE_ , arrival_time , destination_time ,ticketPrice from flight_schedule");
             getflightlistfillter = connection.prepareStatement(
                     " select schedule_id, ticketId, from_ , destination , DATE_ , arrival_time , destination_time ,ticketPrice from flight_schedule where from_ = ? && destination=?");
-            inserIntoBook = connection.prepareStatement("INSERT INTO books(email,ticketid, seat_id) VALUES(?,?,?);");
+            inserIntoBook = connection.prepareStatement("INSERT INTO books(email,schedule_id, seatid) VALUES(?,?,?);");
             getEcoSeat = connection
                     .prepareStatement("SELECT seat_id FROM seats WHERE class like 'eco' && status like 'avil';");
             getBussiSeat = connection
-                    .prepareStatement("SELECT seat_id FROM seats WHERE class like 'bessi' && status like 'avil';");
+                    .prepareStatement("SELECT seat_id FROM seats WHERE class like 'bessiness' && status like 'avil';");
 
             selectAllUser = connection.prepareStatement("select * from user where roles=?");
             Insert = connection.prepareStatement(
-                    " insert into flight_schedule (flightNumber , ticketId , from_ , destination , DATE_, arrival_time, rout , AirportName , ticketPrice  ) values (? , ? , ? , ? , ? , ? , ?, ?,? );");
+                    " insert into flight_schedule (schedule_id , ticketId , from_ , destination , DATE_, arrival_time, rout , AirportName , ticketPrice  ) values (? , ? , ? , ? , ? , ? , ?, ?,? );");
             register = connection.prepareStatement(
                     " insert into user (fname , lname , email, pass_word, roles) values (? , ? , ? , ? , ? )");
             UpdateSeat = connection.prepareStatement("UPDATE seats SET status = ? WHERE seat_id = ?;");
             deleteFlightSchedule = connection.prepareStatement("DELETE FROM flight_schedule WHERE schedule_id=?");
-=======
-                    " select schedule_id, flightNumber, flight_name, from_ , destination , DATE_ , arrival_time , destination_time ,ticketPrice from flight_schedule");
-            selectAll = connection.prepareStatement("select * from user");
-            Insert = connection.prepareStatement(
-                    " insert into flight_schedule (flightNumber , planeNumber , from_ , to_ , Date_, time, Rout , AirpotName , ticketPrice  ) values (? , ? , ? , ? , ? , ? , ?, ?,? );");
->>>>>>> 1430c61ce5ae4df9cee3345f6d9895624fc866d0
         } catch (SQLException ex) {
 
             ex.printStackTrace();
@@ -185,7 +145,6 @@ public class DataAccessQueries {
 
     public int addSchedule(String flightNumber, String planeNumber, String from, String to, String string, String time,
             String Rout, String AirpotName, String ticketPrice) {
-        System.out.println(flightNumber);
 
         try {
             Insert.setString(1, flightNumber);
@@ -211,8 +170,8 @@ public class DataAccessQueries {
         try (ResultSet resultSet = selectAllUser.executeQuery()) {
             int returned = 0;
             while (resultSet.next()) {
-                if (resultSet.getString(4).equals(username)
-                        && (resultSet.getString(5).equals(password) && (resultSet.getString(6).equals(user)))) {
+                if (resultSet.getString(3).equals(username)
+                        && (resultSet.getString(4).equals(password) && (resultSet.getString(5).equals(user)))) {
                     returned = 1;
                     break;
                 } else {
@@ -231,8 +190,8 @@ public class DataAccessQueries {
         try (ResultSet resultSet = selectAllUser.executeQuery()) {
             int returned = 0;
             while (resultSet.next()) {
-                if (resultSet.getString(4).equals(username)
-                        && (resultSet.getString(5).equals(password) && (resultSet.getString(6).equals(Admin)))) {
+                if (resultSet.getString(3).equals(username)
+                        && (resultSet.getString(4).equals(password) && (resultSet.getString(5).equals(Admin)))) {
                     returned = 1;
                     break;
                 } else {
@@ -271,185 +230,4 @@ public class DataAccessQueries {
         deleteFlightSchedule.setInt(1, schedule_id);
         return deleteFlightSchedule.executeUpdate();
     }
-
-    public List<BookedTicket> booked() {
-
-        List<BookedTicket> result = new ArrayList<>();
-
-        try {
-
-            selectAll = connection.prepareStatement(byAllQuery);
-            ResultSet rs;
-            rs = selectAll.executeQuery();
-            while (rs.next()) {
-                result.add(new BookedTicket(
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getInt(8)));
-            }
-            return result;
-        } catch (SQLException e) {
-
-            System.out.println(e);
-            return null;
-        }
-
-    }
-
-    public List<Ticket> ticket() {
-
-        List<Ticket> result = new ArrayList<>();
-
-        try {
-
-            getTicket = connection.prepareStatement(getTicketQuery);
-            ResultSet rs;
-            rs = getTicket.executeQuery();
-            while (rs.next()) {
-                result.add(new Ticket(
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getInt(8)));
-            }
-            return result;
-        } catch (SQLException e) {
-
-            System.out.println(e);
-            return null;
-        }
-
-    }
-
-    public List<Ticket> getByFirstName(String name) {
-        try {
-            getByFirstName = connection.prepareStatement(getTicketByFirstName);
-            getByFirstName.setString(1, name);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-        try (ResultSet rs = getByFirstName.executeQuery()) {
-            List<Ticket> results = new ArrayList<>();
-            while (rs.next()) {
-                results.add(new Ticket(
-
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getInt(8)));
-            }
-            return results;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public List<Ticket> getByDate(String date) {
-        try {
-            getByDate = connection.prepareStatement(getTicketByDate);
-            getByDate.setString(1, date);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-        try (ResultSet rs = getByDate.executeQuery()) {
-            List<Ticket> results = new ArrayList<>();
-            while (rs.next()) {
-                results.add(new Ticket(
-
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getInt(8)));
-            }
-            return results;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-<<<<<<< HEAD
 }
-=======
-
-    public int addSchedule(String flightNumber, String planeNumber, String from, String to, String string, String time,
-            String Rout, String AirpotName, String ticketPrice) {
-        System.out.println(flightNumber);
-
-        try {
-            Insert.setString(1, flightNumber);
-            Insert.setString(2, planeNumber);
-            Insert.setString(3, from);
-            Insert.setString(4, to);
-            Insert.setString(5, string);
-            Insert.setString(6, time);
-            Insert.setString(7, Rout);
-            Insert.setString(8, AirpotName);
-            Insert.setString(9, ticketPrice);
-
-            return Insert.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-
-        }
-    }
-
-    public int check(String username, String password, String user) {
-        try (ResultSet resultSet = selectAll.executeQuery()) {
-            int returned = 0;
-            while (resultSet.next()) {
-                if (resultSet.getString(4).equals(username)
-                        && (resultSet.getString(6).equals(password) && (resultSet.getString(9).equals(user)))) {
-                    returned = 1;
-                    break;
-                } else {
-                    returned = 0;
-                }
-
-            }
-            return returned;
-        } catch (Exception e) {
-            return 0;
-        }
-    }
-
-    public int confirm(String username, String password, String Admin) {
-        try (ResultSet resultSet = selectAll.executeQuery()) {
-            int returned = 0;
-            while (resultSet.next()) {
-                if (resultSet.getString(4).equals(username)
-                        && (resultSet.getString(6).equals(password) && (resultSet.getString(9).equals(Admin)))) {
-                    returned = 1;
-                    break;
-                } else {
-                    returned = 0;
-                }
-
-            }
-            return returned;
-        } catch (Exception e) {
-            return 0;
-        }
-    }
-}
->>>>>>> 1430c61ce5ae4df9cee3345f6d9895624fc866d0
