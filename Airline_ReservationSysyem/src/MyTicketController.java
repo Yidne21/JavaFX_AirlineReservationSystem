@@ -1,9 +1,14 @@
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -14,7 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.BookedTicket;
 import model.DataAccessQueries;
 
-public class MyTicketController {
+public class MyTicketController implements Initializable {
 
     @FXML
     private TableView<BookedTicket> BookedtableView;
@@ -49,7 +54,7 @@ public class MyTicketController {
     private TextField emailTf;
 
     @FXML
-    void serachBtnClicked(ActionEvent event) throws SQLException {
+    void serachBtnClicked(ActionEvent event) throws SQLException, IOException {
         initTable();
         loadData();
     }
@@ -81,10 +86,22 @@ public class MyTicketController {
         ticketPriceColumn.setCellValueFactory(new PropertyValueFactory<BookedTicket, Integer>("ticketPrice"));
     }
 
-    private void loadData() throws SQLException {
+    private void loadData() throws SQLException, IOException {
         ObservableList<BookedTicket> data = FXCollections.observableArrayList();
         data.addAll(dataAccessQueries.getMyTicket(emailTf.getText()));
         BookedtableView.setItems(data);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initTable();
+        ObservableList<BookedTicket> data = FXCollections.observableArrayList();
+        try {
+            data.addAll(dataAccessQueries.getMyTicket(userDashBoardController.getEmail()));
+            BookedtableView.setItems(data);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

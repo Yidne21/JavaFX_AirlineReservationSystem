@@ -65,8 +65,9 @@ public class LoginController extends SceneSwitcher {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/UserUI/userDashboard.fxml"));
                     Parent root = loader.load();
-                    userDashBoardController userDashBoardController = loader.getController();
-                    userDashBoardController.LableName.setText(emailTF.getText());
+                    userDashBoardController userdashBoardController = loader.getController();
+                    userdashBoardController.LableName.setText(emailTF.getText());
+                    userDashBoardController.setEmail(emailTF.getText());
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);

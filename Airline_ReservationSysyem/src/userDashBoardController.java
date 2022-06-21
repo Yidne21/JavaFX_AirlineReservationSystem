@@ -37,6 +37,8 @@ public class userDashBoardController extends SceneSwitcher {
     @FXML
     public VBox vbox;
 
+    public static String email;
+
     PaneSwicher swicher = new PaneSwicher();
 
     @FXML
@@ -62,4 +64,11 @@ public class userDashBoardController extends SceneSwitcher {
         rootBorderpane.setCenter(view);
     }
 
+    public static void setEmail(String email) {
+        userDashBoardController.email = email;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
 }
